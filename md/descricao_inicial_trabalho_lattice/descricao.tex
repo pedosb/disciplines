@@ -3,6 +3,8 @@
 \usepackage{graphicx}
 \usepackage[utf8]{inputenc}
 
+\hyphenation{ve-ri-fi-car FalaBrasil}
+
 \title{Reconhecimento de Padrões em Erro no Reconhecimento
    Automático de Voz\\
    Mineração de Dados}
@@ -17,15 +19,15 @@
 
 Quando se fala em Reconhecimento Automático de Voz (RAV) a
 principal abordagem encontrada na literatura é a probabilística,
-especificamente Modelos Ocultos de Markov (HMM - Hidden Markov Model).
+especificamente Modelos Ocultos de Markov (HMM - Hidden Markov Model)\cite{htkbook,propor10}.
 Existem também trabalhos que usam Inteligencia Artificial para
 reconhecer o áudio, porém neste trabalho estamos usando HMM.
 
 Em HMM, são criados modelos para cada fonema existente na lingua,
 isto é, com um modelo para cada tipo de som podemos criar qualquer
 palavra. Com esses modelos precisamos de um software chamado
-decodificador, este recebe como dos modelos e do audio de entrada,
-tendo isso o decodificador é capaz de transcrever sua entrada.
+decodificador, este recebe os modelos e o audio de entrada,
+tendo isso, o decodificador é capaz de transcrever sua entrada.
 
 \section{Erros de Reconhecimento}
 
@@ -39,7 +41,7 @@ processo de reconhecimento, isto é, um grafo (aqui chamado lattice) onde seus l
 representam uma transição entre palavras. A transição tem um determinado
 peso (score) que o decodificador gera, comparando os modelos com a entrada.
 O objetivo é chegar no final deste grafo com o
-menor score possível, guardando as palavras (nós) pelo qual passou
+menor score possível, guardando as palavras (nós) pelo qual passou,
 gerando assim a sentença reconhecida. Para ilustrar é mostrado abaixo
 uma lattice.
 
@@ -80,22 +82,25 @@ sil[4],0.01,-59.28:sil[4],0.01,-54.67:sil[4],0.01,-55.36:sil[4],0.01,-53.63:
 sil[4],0.01,-62.21:sil[4],0.01,-58.88:sil[4],0.01,-66.78:sil[4],0.01,-57.83:
 \end{verbatim}
 
-As linhas iniciadas com \textbf{I} ilustram, os estados e a estes estão vinculados
-palavras, as transições entre elas, são as linhas iniciadas com \textbf{J}, e a
-transição \textbf{J}, é de \textbf{S} para \textbf{E}, e tem o peso \textbf{a} (acústico),
-e \textbf{l} (linguístico), o peso \textbf{a} é detalhado em \textbf{d}, dando
-o estado e a HMM, o tempo de permanência, e o score de cada fonema, respectivamente.
+As linhas iniciadas com \texttt{I} ilustram os estados, e a estes estão vinculados
+palavras (\texttt{W}), as transições entre elas, são as linhas iniciadas com \texttt{J}. A
+transição \texttt{J}, é de \texttt{S} para \texttt{E}, e tem o peso \texttt{a} (acústico),
+e \texttt{l} (linguístico), o peso \texttt{a} é detalhado em \texttt{d}, sendo que \texttt{d}
+nos fornece os dados da seguinte forma: \texttt{:n,t,s:}, onde \texttt{n} representa
+o estado da HMM, \texttt{t} o tempo de permanência nesse estado e \texttt{s} o score
+obtido nesse estado e tempo. Uma descrição mais detalhada deste tipo de lattice pode 
+ser encontrada em~\cite{htkbook}.
 
 \section{Metodologia}
 
 Tendo acesso a lattice e a sentença que deveria ter sido reconhecida (correta) de um
-determinado som podemos determinar se houve um erro ou não. Se houve um erro
-frequentemente significa que a sentença com maior score (reconhecida) não foi a correta 
-porém, a correta está quase sempre no rank das 5 melhores.
+determinado som podemos determinar se houve um erro ou não. Um erro
+frequentemente significa que a sentença com maior score (reconhecida) não foi a correta.
+Porém, a correta está quase sempre no rank das 5 melhores.
 
-Uma vez que determinadas a sentença reconhecida e a correta podemos verificar, que
+Uma vez que determinada as sentenças reconhecida e a correta podemos verificar, que
 elas compartilham muitas transições, e comumente o erro acontece em alguns poucos
-frames, onde certo fonemas se confundem (ponto de confusão). Na Fig~\ref{fig:score} mostrado
+frames, onde certo fonemas se confundem (ponto de confusão). Na Fig~\ref{fig:score} é mostrado
 um gráfico do score pelos frames de duas sentenças, a reconhecida e a correta de um processo
 de reconhecimento.
 
@@ -105,18 +110,20 @@ de reconhecimento.
   \label{fig:score}
 \end{figure}
 
-Podemos observar, que próximo do frame 20, houve uma confusão principalmente entre os frames
+Podemos observar, que próximo do frame 20, houve uma confusão principalmente entre os fonemas 
 \textbf{f} e \textbf{n}, neste caso o \textbf{n} que pertence a sentença correta,
-ficou com score menor que o \textbf{f}, ocasionando o erro do reconhecimento, algo parecido
+ficou com score menor que o \textbf{f} (reconhecida), ocasionando o erro do reconhecimento. Algo parecido
 acontece próximo do frame 40.
 
-Acredita-se que observando parâmetros da áudio seja possível, entrar um padrão de confusão e 
+Acredita-se que observando parâmetros do áudio seja possível, encontrar um padrão de confusão e 
 corrigi-lo, para isso serão usadas técnicas de mineração de dados.
 
 \section{Colaboração}
 
 É importante notar que este trabalho está sendo desenvolvido, pelo grupo FalaBrasil, do
-Laboratório de Processamento de Sinais, e que Pedro Batista, é apenas um membro do
+Laboratório de Processamento de Sinais, e que Pedro Batista, é apenas um membro do grupo de
 desenvolvimento.
 
+\bibliographystyle{plain}
+\bibliography{bib.bib} 
 \end{document}
