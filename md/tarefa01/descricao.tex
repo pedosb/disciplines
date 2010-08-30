@@ -1,0 +1,45 @@
+\documentclass[a4paper]{article}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
+\hyphenation{ve-ri-fi-car FalaBrasil}
+
+\title{Tarefa 01}
+
+\author{Pedro Batista - pedro@ufpa.br}
+
+\begin{document}
+
+\maketitle
+
+\section{Questão 4}
+Como esperado o algoritmo 1R procurou qual o atributo
+que sozinho melhor representa a classe final, isto é,
+qual possui o menor erro. Por observar apenas um atributo
+seu resultado não foi tão bom, pois não é suficiente
+para descrever o comportamento desses dados.
+
+O algoritmo ID3, leva em consideração quantos atributos
+forem necessários, neste caso, ele escolheu Situação
+Financeira e Inteligencia para classificar nossa variável
+classe, e este se mostrou o melhor resultado.
+
+Em pesquisas, o algoritmos C5.0, se mostrou uma extensão
+do C4.5, este ultimo é um algoritmo livre~\cite{data}, já o C5.0, não 
+está disponível livremente e não é descrito em livros, então
+não foi possível usa-lo. Porém é conhecido que o C5.0 tem
+poucas melhorias em relação ao C4.5, melhorando principalmente
+o tempo de processamento. A ideia do C4.5, é
+tentar prever o erro de cada folha de uma árvore, e o erro se essas
+forem trocadas por apenas uma. Outra possibilidade é substituir 
+um nó por toda sua subárvore abaixo. Muitas vezes
+além de melhorar os resultados esse algoritmo melhora também
+o tempo de processamento. Nesse conjunto de dados, não houve melhorias
+em relação a árvore encontrada no algoritmo ID3.
+
+
+\bibliographystyle{plain}
+\bibliography{bib.bib} 
+
+\end{document}
