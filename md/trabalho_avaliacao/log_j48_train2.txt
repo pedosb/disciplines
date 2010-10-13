@@ -1,0 +1,48 @@
+
+Options: -C 0.25 -M 20 
+
+J48 pruned tree
+------------------
+
+plas <= 143
+|   mass <= 26.3: tested_negative (135.0/3.0)
+|   mass > 26.3
+|   |   plas <= 99: tested_negative (122.0/14.0)
+|   |   plas > 99
+|   |   |   age <= 28
+|   |   |   |   skin <= 0: tested_positive (24.0/11.0)
+|   |   |   |   skin > 0: tested_negative (107.0/18.0)
+|   |   |   age > 28
+|   |   |   |   pedi <= 0.527
+|   |   |   |   |   pres <= 66: tested_positive (23.0/8.0)
+|   |   |   |   |   pres > 66: tested_negative (82.0/29.0)
+|   |   |   |   pedi > 0.527: tested_positive (48.0/13.0)
+plas > 143: tested_positive (159.0/44.0)
+
+Number of Leaves  : 	8
+
+Size of the tree : 	15
+
+
+Time taken to build model: 0.08 seconds
+Time taken to test model on training data: 0.02 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         560               80      %
+Incorrectly Classified Instances       140               20      %
+Kappa statistic                          0.563 
+Mean absolute error                      0.2901
+Root mean squared error                  0.3808
+Relative absolute error                 64.098  %
+Root relative squared error             80.0732 %
+Total Number of Instances              700     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.834     0.264      0.857     0.834     0.845      0.845    tested_negative
+                 0.736     0.166      0.701     0.736     0.718      0.845    tested_positive
+Weighted Avg.    0.8       0.23       0.803     0.8       0.801      0.845
+

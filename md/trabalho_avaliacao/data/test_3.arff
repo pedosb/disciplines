@@ -1,0 +1,163 @@
+% 1. Title: Pima Indians Diabetes Database
+% 
+% 2. Sources:
+%    (a) Original owners: National Institute of Diabetes and Digestive and
+%                         Kidney Diseases
+%    (b) Donor of database: Vincent Sigillito (vgs@aplcen.apl.jhu.edu)
+%                           Research Center, RMI Group Leader
+%                           Applied Physics Laboratory
+%                           The Johns Hopkins University
+%                           Johns Hopkins Road
+%                           Laurel, MD 20707
+%                           (301) 953-6231
+%    (c) Date received: 9 May 1990
+% 
+% 3. Past Usage:
+%     1. Smith,~J.~W., Everhart,~J.~E., Dickson,~W.~C., Knowler,~W.~C., \&
+%        Johannes,~R.~S. (1988). Using the ADAP learning algorithm to forecast
+%        the onset of diabetes mellitus.  In {\it Proceedings of the Symposium
+%        on Computer Applications and Medical Care} (pp. 261--265).  IEEE
+%        Computer Society Press.
+% 
+%        The diagnostic, binary-valued variable investigated is whether the
+%        patient shows signs of diabetes according to World Health Organization
+%        criteria (i.e., if the 2 hour post-load plasma glucose was at least 
+%        200 mg/dl at any survey  examination or if found during routine medical
+%        care).   The population lives near Phoenix, Arizona, USA.
+% 
+%        Results: Their ADAP algorithm makes a real-valued prediction between
+%        0 and 1.  This was transformed into a binary decision using a cutoff of 
+%        0.448.  Using 576 training instances, the sensitivity and specificity
+%        of their algorithm was 76% on the remaining 192 instances.
+% 
+% 4. Relevant Information:
+%       Several constraints were placed on the selection of these instances from
+%       a larger database.  In particular, all patients here are females at
+%       least 21 years old of Pima Indian heritage.  ADAP is an adaptive learning
+%       routine that generates and executes digital analogs of perceptron-like
+%       devices.  It is a unique algorithm; see the paper for details.
+% 
+% 5. Number of Instances: 768
+% 
+% 6. Number of Attributes: 8 plus class 
+% 
+% 7. For Each Attribute: (all numeric-valued)
+%    1. Number of times pregnant
+%    2. Plasma glucose concentration a 2 hours in an oral glucose tolerance test
+%    3. Diastolic blood pressure (mm Hg)
+%    4. Triceps skin fold thickness (mm)
+%    5. 2-Hour serum insulin (mu U/ml)
+%    6. Body mass index (weight in kg/(height in m)^2)
+%    7. Diabetes pedigree function
+%    8. Age (years)
+%    9. Class variable (0 or 1)
+% 
+% 8. Missing Attribute Values: None
+% 
+% 9. Class Distribution: (class value 1 is interpreted as "tested positive for
+%    diabetes")
+% 
+%    Class Value  Number of instances
+%    0            500
+%    1            268
+% 
+% 10. Brief statistical analysis:
+% 
+%     Attribute number:    Mean:   Standard Deviation:
+%     1.                     3.8     3.4
+%     2.                   120.9    32.0
+%     3.                    69.1    19.4
+%     4.                    20.5    16.0
+%     5.                    79.8   115.2
+%     6.                    32.0     7.9
+%     7.                     0.5     0.3
+%     8.                    33.2    11.8
+% 
+% 
+%
+%
+%
+%
+% Relabeled values in attribute 'class'
+%    From: 0                       To: tested_negative     
+%    From: 1                       To: tested_positive     
+%
+@relation pima_diabetes
+@attribute 'preg' real
+@attribute 'plas' real
+@attribute 'pres' real
+@attribute 'skin' real
+@attribute 'insu' real
+@attribute 'mass' real
+@attribute 'pedi' real
+@attribute 'age' real
+@attribute 'class' { tested_negative, tested_positive}
+@data
+2,130,96,0,0,22.6,0.268,21,tested_negative
+2,197,70,99,0,34.7,0.575,62,tested_positive
+1,88,62,24,44,29.9,0.422,23,tested_negative
+3,61,82,28,0,34.4,0.243,46,tested_negative
+6,102,90,39,0,35.7,0.674,28,tested_negative
+6,190,92,0,0,35.5,0.278,66,tested_positive
+12,92,62,7,258,27.6,0.926,44,tested_positive
+6,92,62,32,126,32,0.085,46,tested_negative
+4,148,60,27,318,30.9,0.15,29,tested_positive
+1,109,38,18,120,23.1,0.407,26,tested_negative
+9,57,80,37,0,32.8,0.096,41,tested_negative
+4,117,64,27,120,33.2,0.23,24,tested_negative
+1,135,54,0,0,26.7,0.687,62,tested_negative
+3,99,80,11,64,19.3,0.284,30,tested_negative
+2,82,52,22,115,28.5,1.699,25,tested_negative
+2,56,56,28,45,24.2,0.332,22,tested_negative
+3,173,84,33,474,35.7,0.258,22,tested_positive
+0,146,70,0,0,37.9,0.334,28,tested_positive
+0,100,70,26,50,30.8,0.597,21,tested_negative
+0,101,76,0,0,35.7,0.198,26,tested_negative
+1,100,66,15,56,23.6,0.666,26,tested_negative
+4,142,86,0,0,44,0.645,22,tested_positive
+5,122,86,0,0,34.7,0.29,33,tested_negative
+8,109,76,39,114,27.9,0.64,31,tested_positive
+0,104,76,0,0,18.4,0.582,27,tested_negative
+2,93,64,32,160,38,0.674,23,tested_positive
+13,152,90,33,29,26.8,0.731,43,tested_positive
+2,87,58,16,52,32.7,0.166,25,tested_negative
+4,184,78,39,277,37,0.264,31,tested_positive
+5,130,82,0,0,39.1,0.956,37,tested_positive
+3,111,58,31,44,29.5,0.43,22,tested_negative
+5,189,64,33,325,31.2,0.583,29,tested_positive
+1,118,58,36,94,33.3,0.261,23,tested_negative
+1,80,74,11,60,30,0.527,22,tested_negative
+8,167,106,46,231,37.6,0.165,43,tested_positive
+0,121,66,30,165,34.3,0.203,33,tested_positive
+6,105,70,32,68,30.8,0.122,37,tested_negative
+3,124,80,33,130,33.2,0.305,26,tested_negative
+1,111,86,19,0,30.1,0.143,23,tested_negative
+1,97,66,15,140,23.2,0.487,22,tested_negative
+4,103,60,33,192,24,0.966,33,tested_negative
+1,168,88,29,0,35,0.905,52,tested_positive
+1,91,64,24,0,29.2,0.192,21,tested_negative
+0,189,104,25,0,34.3,0.435,41,tested_positive
+6,105,80,28,0,32.5,0.878,26,tested_negative
+2,74,0,0,0,0,0.102,22,tested_negative
+3,102,74,0,0,29.5,0.121,32,tested_negative
+0,132,78,0,0,32.4,0.393,21,tested_negative
+2,108,80,0,0,27,0.259,52,tested_positive
+8,143,66,0,0,34.9,0.129,41,tested_positive
+6,144,72,27,228,33.9,0.255,40,tested_negative
+4,83,86,19,0,29.3,0.317,34,tested_negative
+4,154,62,31,284,32.8,0.237,23,tested_negative
+5,187,76,27,207,43.6,1.034,53,tested_positive
+8,120,86,0,0,28.4,0.259,22,tested_positive
+2,99,60,17,160,36.6,0.453,21,tested_negative
+5,168,64,0,0,32.9,0.135,41,tested_positive
+3,158,64,13,387,31.2,0.295,24,tested_negative
+2,121,70,32,95,39.1,0.886,23,tested_negative
+3,113,44,13,0,22.4,0.14,22,tested_negative
+3,81,86,16,66,27.5,0.306,22,tested_negative
+0,67,76,0,0,45.3,0.194,46,tested_negative
+7,194,68,28,0,35.9,0.745,41,tested_positive
+5,99,54,28,83,34,0.499,30,tested_negative
+3,128,72,25,190,32.4,0.549,27,tested_positive
+4,115,72,0,0,28.9,0.376,46,tested_positive
+0,105,90,0,0,29.6,0.197,46,tested_negative
+7,136,74,26,135,26,0.647,51,tested_negative

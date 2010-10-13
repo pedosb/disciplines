@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+
+%Bordas da página
+\usepackage{setspace}
+\usepackage[inner=30mm,outer=20mm,top=30mm,bottom=20mm]{geometry}
+
+%Fonte arial
+\renewcommand{\rmdefault}{phv}
+
+%layout
+\pdfpagewidth 210mm
+\pdfpageheight 297mm
+%\inglespacing
+\onehalfspacing
+%\doublespacing
+%\topmargin 0in
+%\headheight 0in
+%\headsep 0in
+%\textheight 9in
+%\textwidth 6.5in
+%\oddsidemargin 0in
+%\evensidemargin 0in
+
+%To use \toprule, ...
+\usepackage{booktabs}
+
+\usepackage{multirow}
+
+\usepackage{color}
+
+\title{Avaliação de Algoritmos de Classificação\\
+   Mineração de Dados}
+
+\author{Pedro Batista - pedro@ufpa.br}
+
+\begin{document}
+
+\maketitle
+
+\section{Introdução}
+
+Este trabalho tem como objetivo, avaliar três algoritmos de classificação.
+Para isso serão empregadas técnicas estudadas em sala de aula, como a
+\textit{Student Paired test}, que é uma medida estatística, esta nos
+ajuda a decidir, se, duas técnicas são significativamente diferentes.
+
+\section{A base de dados}
+
+A base de dados utilizada é a mesma citada em~\cite{database}. Esta tem como
+classe o atributo diabete, que pode ser positivo ou negativo. Para esta predição,
+se faz uso de atributos como idade, número de gravidez, pressão sanguínea diastólica,
+dentre outras. A base é constituída de 768 amostras e nenhum atributo está faltando.
+
+Para este trabalho, a base foi dividia três vezes, cada uma em dois conjuntos, disjuntos.
+Isto é, primeiramente, embaralhamos toda a base. Então os últimos 68 atributos foram usados
+para teste, e o resto para treino, esta foi a base T1. Então pegamos novamente a base total
+e separamos os elementos de 300, a 368 para teste e o resto para treino, que formou a base T2.
+A base T3 foi então criada utilizando os 68 primeiros elementos para teste, e o restante para
+treino.
+
+As características das bases são mostradas na tabela~\ref{tab:database}.
+
+\begin{table}[h]
+\centering
+   \begin{tabular}{c | c c | c c | c c}
+      \toprule
+      base/diabetes & T1\_treino & T1\_test & T2\_treino & T2\_test & T3\_treino & T3\_test \\\midrule
+      positivo      &    255    &   16    &    245    &   26    &    246    &   25    \\\midrule
+      negativo      &    450    &   52    &    460    &   42    &    459    &   43    \\
+      \bottomrule
+   \end{tabular}
+   \label{tab:database}
+   \caption{Características das bases de treino e teste utilizadas.}
+\end{table}
+
+\section{O experimento}
+
+Os algoritmos escolhidos para classificação foram: rede neural (RN) multi-camada,
+arvore de decisão com J48, e a Naive Bayes.
+
+Para a rede neural, a melhor configuração encontrada foi: 80 camadas, no máximo
+500 épocas, e uma taxa de apredizagem de 0.3.
+
+Os resultados para todos os algoritmos são mostrados na Tabela~\ref{tab:results}.
+
+\begin{table}[h]
+   \begin{tabular}{c c | c c | c c | c c | c}
+   \toprule
+                   &             & \multicolumn{2}{|c|}{T1} & \multicolumn{2}{|c|}{T2} & \multicolumn{2}{|c|}{T3} & \multirow{3}{*}{Erro Total} \\\cline{3-8}
+		   &             & \multicolumn{6}{|c|}{Classificado} \\
+                   &             & positivo             & negativo            &    positivo & negativo & positivo & negativo & \\\midrule
+   \multirow{3}{*}{RN Multi-camada} & positivo & \textcolor{blue}{8} & \textcolor{red}{8} &
+						    \textcolor{blue}{15} & \textcolor{red}{11} &
+						    \textcolor{blue}{12} & \textcolor{red}{13} & \multirow{3}{*}{24,51\%}\\
+
+				    & negativo & \textcolor{red}{7}  & \textcolor{blue}{45} &
+						    \textcolor{red}{9} & \textcolor{blue}{33} &
+						    \textcolor{red}{2}& \textcolor{blue}{41} \\\cline{2-8}
+
+		   &   Erro      &     \multicolumn{2}{|c|}{22,06\%} &
+				       \multicolumn{2}{|c|}{29,41\%} &
+				       \multicolumn{2}{|c|}{22,06\%} \\\midrule
+
+   \multirow{3}{*}{J48}             & positivo & \textcolor{blue}{9} & \textcolor{red}{7} &
+						    \textcolor{blue}{18} & \textcolor{red}{8} &
+						    \textcolor{blue}{17} & \textcolor{red}{8} & \multirow{3}{*}{23,04\%}\\
+
+				    & negativo & \textcolor{red}{10}  & \textcolor{blue}{42} &
+						    \textcolor{red}{11} & \textcolor{blue}{31} &
+						    \textcolor{red}{3}& \textcolor{blue}{40} \\\cline{2-8}
+
+		   &   Erro      &     \multicolumn{2}{|c|}{25,00\%} &
+				       \multicolumn{2}{|c|}{27,94\%} &
+				       \multicolumn{2}{|c|}{16,18\%} \\\midrule
+
+   \multirow{3}{*}{Naive bayes}     & positivo & \textcolor{blue}{8} & \textcolor{red}{8} &
+						    \textcolor{blue}{16} & \textcolor{red}{10} &
+						    \textcolor{blue}{16} & \textcolor{red}{9} & \multirow{3}{*}{25,49\%}\\
+
+				    & negativo & \textcolor{red}{12}  & \textcolor{blue}{40} &
+						    \textcolor{red}{9} & \textcolor{blue}{33} &
+						    \textcolor{red}{4}& \textcolor{blue}{39} \\\cline{2-8}
+
+		   &   Erro      &     \multicolumn{2}{|c|}{29,41\%} &
+				       \multicolumn{2}{|c|}{27,94\%} &
+				       \multicolumn{2}{|c|}{19,12\%} \\
+				       \bottomrule
+   \end{tabular}
+   \label{tab:results}
+   \caption{Resultados por vários algoritmos.}
+\end{table}
+
+\bibliographystyle{plain}
+\bibliography{bib}
+
+\end{document}

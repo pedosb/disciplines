@@ -1,0 +1,36 @@
+@relation DM_predicao_dataset-weka.filters.unsupervised.attribute.Remove-R1
+
+@attribute dia {ter,qua,qui,sex,sab,dom,seg}
+@attribute fluxo numeric
+
+@data
+dom,12568
+seg,14508
+ter,15015
+qua,15107
+qui,15142
+sex,15018
+sab,13413
+dom,12435
+seg,14658
+ter,15077
+qua,15254
+qui,15146
+sex,14986
+sab,14108
+dom,12970
+seg,14287
+ter,14742
+qua,14924
+qui,14864
+sex,14902
+sab,14085
+dom,13339
+seg,13399
+ter,12050
+qua,14150
+qui,14548
+sex,14276
+sab,13087
+dom,12181
+seg,12516

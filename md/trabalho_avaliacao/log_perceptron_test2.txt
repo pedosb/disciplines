@@ -1,0 +1,1080 @@
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    -0.28863960399938793
+    Node 2    0.443597551684031
+    Node 3    0.27279697033264794
+    Node 4    0.1517234210288115
+    Node 5    0.1983955053736207
+    Node 6    -0.5482865654080215
+    Node 7    -0.8589963616995223
+    Node 8    1.9044009491263243
+    Node 9    -0.9681696065602352
+    Node 10    -0.12260553241995535
+    Node 11    -0.061323623802918205
+    Node 12    -0.49556990975906945
+    Node 13    0.3268231844383571
+    Node 14    0.30348751760094883
+    Node 15    0.3108637741095944
+    Node 16    -0.3132069733346697
+    Node 17    -0.06457524247329233
+    Node 18    0.03580923011670163
+    Node 19    5.978709842546911
+    Node 20    0.2952830382575283
+    Node 21    -0.0872900511145203
+    Node 22    6.516302927998556
+    Node 23    0.311211777586426
+    Node 24    -4.558714498513893
+    Node 25    0.360005072475341
+    Node 26    0.2485800036938819
+    Node 27    -1.7718048330432037
+    Node 28    0.3925790031148633
+    Node 29    -3.617683682495967
+    Node 30    -0.48597716933483726
+    Node 31    -0.7668078516048432
+    Node 32    -0.1908257720595316
+    Node 33    -0.6750877131119433
+    Node 34    0.23557493411246477
+    Node 35    0.32962657683618507
+    Node 36    0.0761539873866236
+    Node 37    -0.20416151782055533
+    Node 38    -2.300743591994981
+    Node 39    -1.4897268430920254
+    Node 40    6.677045611203867
+    Node 41    0.043141585612170213
+    Node 42    0.2827529230517117
+    Node 43    -0.6427509813535806
+    Node 44    0.46078995884345325
+    Node 45    0.029279885390841497
+    Node 46    1.8089091242234252
+    Node 47    0.21584199737469476
+    Node 48    -0.658878326295359
+    Node 49    0.3134548138984553
+    Node 50    2.4883624016590695
+    Node 51    0.439319591970594
+    Node 52    -3.395253293551477
+    Node 53    0.235311001761879
+    Node 54    0.20908745692915465
+    Node 55    -1.6597222089038657
+    Node 56    0.37048300420854935
+    Node 57    -0.5506862364894628
+    Node 58    0.26404299993542424
+    Node 59    0.2101595850467122
+    Node 60    0.6835392879291646
+    Node 61    -1.459687048544911
+    Node 62    -1.7612373023514214
+    Node 63    0.6642312807274033
+    Node 64    -1.694541131327099
+    Node 65    2.2249503707345055
+    Node 66    -1.7854719579451401
+    Node 67    -0.36425279051446163
+    Node 68    4.475360265977577E-4
+    Node 69    -1.0559024849785446
+    Node 70    0.33064658736816654
+    Node 71    0.38312702385839476
+    Node 72    0.2727216197823918
+    Node 73    5.011206327338677
+    Node 74    0.28919188953164227
+    Node 75    4.984147179230759
+    Node 76    0.5676481278022482
+    Node 77    -0.07040571519685272
+    Node 78    -4.0858260282649645
+    Node 79    0.39668128425179877
+    Node 80    -0.008926949835982887
+    Node 81    -0.026273131175081725
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    0.2888950321519186
+    Node 2    -0.4232392647497527
+    Node 3    -0.31126223529921826
+    Node 4    -0.18448658607095128
+    Node 5    -0.2440858809733802
+    Node 6    0.5137485596913312
+    Node 7    0.8334557841793496
+    Node 8    -1.9049938326626976
+    Node 9    0.9654103800624233
+    Node 10    0.08453423232890288
+    Node 11    0.07440704016667418
+    Node 12    0.520809061789228
+    Node 13    -0.3474110288245858
+    Node 14    -0.3352058501640465
+    Node 15    -0.27345651591460146
+    Node 16    0.2998607686529745
+    Node 17    0.101628816640245
+    Node 18    -0.006642531141630137
+    Node 19    -5.97667393059777
+    Node 20    -0.2713725132795426
+    Node 21    0.026577835368957817
+    Node 22    -6.51694596052236
+    Node 23    -0.35115625926973437
+    Node 24    4.554155408798159
+    Node 25    -0.3557989272988506
+    Node 26    -0.29012221588394466
+    Node 27    1.7638093847588638
+    Node 28    -0.34810133627812967
+    Node 29    3.619611122323022
+    Node 30    0.4339396850047838
+    Node 31    0.7964973869780148
+    Node 32    0.15682771249825764
+    Node 33    0.6835582196874229
+    Node 34    -0.30232911468791435
+    Node 35    -0.32727610733778717
+    Node 36    -0.16277073898394695
+    Node 37    0.24346698500601935
+    Node 38    2.2906312296418103
+    Node 39    1.5314118372365024
+    Node 40    -6.677693811053028
+    Node 41    -0.03529413606393965
+    Node 42    -0.2056231954498597
+    Node 43    0.6878220456857151
+    Node 44    -0.49236863057428487
+    Node 45    0.024007645909057067
+    Node 46    -1.810620819246559
+    Node 47    -0.16370051915041284
+    Node 48    0.6727896870555697
+    Node 49    -0.30880375452966036
+    Node 50    -2.4988150322006955
+    Node 51    -0.46761644472000136
+    Node 52    3.407832186586622
+    Node 53    -0.28383654170165845
+    Node 54    -0.2144057983363601
+    Node 55    1.611917502136045
+    Node 56    -0.3352496693045168
+    Node 57    0.5303171009848795
+    Node 58    -0.286289688582887
+    Node 59    -0.24893511985498365
+    Node 60    -0.6718522226428029
+    Node 61    1.4448720166997833
+    Node 62    1.7812477435441572
+    Node 63    -0.6161287280701789
+    Node 64    1.708484459466966
+    Node 65    -2.233645377035688
+    Node 66    1.791610122039943
+    Node 67    0.40768613820793054
+    Node 68    0.016053407540888926
+    Node 69    0.9896003653875806
+    Node 70    -0.3089981766728639
+    Node 71    -0.4460764998750894
+    Node 72    -0.24096109413004577
+    Node 73    -5.007912580014373
+    Node 74    -0.22827670711662235
+    Node 75    -4.9839352222439715
+    Node 76    -0.5023909901493426
+    Node 77    0.1234159743207988
+    Node 78    4.086109701415285
+    Node 79    -0.37727344046535893
+    Node 80    0.023185470946829496
+    Node 81    0.05186267170319398
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -1.8160064105781395
+    Attrib preg    0.6860528447847353
+    Attrib plas    -1.751084811383388
+    Attrib pres    0.18862361625051377
+    Attrib skin    0.7379064473652732
+    Attrib insu    0.5967001389669205
+    Attrib mass    -1.035761095488725
+    Attrib pedi    -0.015554476858849066
+    Attrib age    1.11800640850825
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -1.3379491000479984
+    Attrib preg    0.3073154549550187
+    Attrib plas    -0.651012750112218
+    Attrib pres    -0.2568963646867225
+    Attrib skin    0.6448674929515726
+    Attrib insu    0.9563497426492421
+    Attrib mass    -0.34258337693726604
+    Attrib pedi    0.4078458362675178
+    Attrib age    0.6111026221159526
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -1.2217279111772437
+    Attrib preg    0.4594898640607171
+    Attrib plas    -0.33774157430208285
+    Attrib pres    -0.2522586391464708
+    Attrib skin    0.7710583285495463
+    Attrib insu    0.9822484722393878
+    Attrib mass    9.76975344817331E-4
+    Attrib pedi    0.9072242200549299
+    Attrib age    0.4793402656741773
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    -1.2267528378103243
+    Attrib preg    0.4020571257387225
+    Attrib plas    -0.4543341534241712
+    Attrib pres    -0.19793426526204203
+    Attrib skin    0.6530854835392107
+    Attrib insu    0.991015552726079
+    Attrib mass    -0.10255189696620416
+    Attrib pedi    0.7688614542624748
+    Attrib age    0.5165808006343442
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    -1.1424354128893668
+    Attrib preg    1.4336147051100574
+    Attrib plas    -0.2103017894742415
+    Attrib pres    -0.4162458647602118
+    Attrib skin    1.4945878156006154
+    Attrib insu    0.6701749481054566
+    Attrib mass    0.48174581959559
+    Attrib pedi    1.4746315485669224
+    Attrib age    0.8277407204767595
+Sigmoid Node 7
+    Inputs    Weights
+    Threshold    -0.954756825889098
+    Attrib preg    1.8183429378601095
+    Attrib plas    -0.11256283918869438
+    Attrib pres    -0.4276030457380427
+    Attrib skin    1.8385257442645735
+    Attrib insu    0.4761202906173899
+    Attrib mass    0.5441587488992912
+    Attrib pedi    1.7052248373567653
+    Attrib age    0.9500931149647631
+Sigmoid Node 8
+    Inputs    Weights
+    Threshold    -3.804353868230208
+    Attrib preg    -9.25323745255777
+    Attrib plas    -10.326272513526305
+    Attrib pres    -2.828963493650128
+    Attrib skin    4.832479205211004
+    Attrib insu    0.9586738143453654
+    Attrib mass    -1.048041039525968
+    Attrib pedi    -3.8090374665413047
+    Attrib age    -2.2991933569777387
+Sigmoid Node 9
+    Inputs    Weights
+    Threshold    -0.878083976749414
+    Attrib preg    1.9763048620211856
+    Attrib plas    0.005330952493193588
+    Attrib pres    -0.47000513905534436
+    Attrib skin    1.9815827232794976
+    Attrib insu    0.4658978415306858
+    Attrib mass    0.5420335031445335
+    Attrib pedi    1.727401979991388
+    Attrib age    1.1168214294271004
+Sigmoid Node 10
+    Inputs    Weights
+    Threshold    -1.2392278046192122
+    Attrib preg    0.8580925769539229
+    Attrib plas    -0.3367396394273206
+    Attrib pres    -0.25913145436465773
+    Attrib skin    1.0359216413446488
+    Attrib insu    0.8702454428031147
+    Attrib mass    0.15258696040168582
+    Attrib pedi    1.2062921869367154
+    Attrib age    0.5291804602222792
+Sigmoid Node 11
+    Inputs    Weights
+    Threshold    -1.215859460455973
+    Attrib preg    0.7364130253037308
+    Attrib plas    -0.34260131227515106
+    Attrib pres    -0.25622387272058444
+    Attrib skin    1.034461765339936
+    Attrib insu    0.848525633831394
+    Attrib mass    0.1720568118566226
+    Attrib pedi    1.1866241405191411
+    Attrib age    0.5672410845858744
+Sigmoid Node 12
+    Inputs    Weights
+    Threshold    -1.1171897877462211
+    Attrib preg    1.3587503117697932
+    Attrib plas    -0.3378660646212374
+    Attrib pres    -0.2836116380522783
+    Attrib skin    1.4794486820405033
+    Attrib insu    0.7031798651223716
+    Attrib mass    0.2825056996706881
+    Attrib pedi    1.4762671262330866
+    Attrib age    0.7365420284265595
+Sigmoid Node 13
+    Inputs    Weights
+    Threshold    -1.5179899105078996
+    Attrib preg    0.3969594014489015
+    Attrib plas    -1.0594171101465149
+    Attrib pres    -0.13120093455053067
+    Attrib skin    0.581977176352543
+    Attrib insu    0.8913599122959837
+    Attrib mass    -0.6281988625045792
+    Attrib pedi    0.12577578235426107
+    Attrib age    0.7124178404476459
+Sigmoid Node 14
+    Inputs    Weights
+    Threshold    -1.3762841251443587
+    Attrib preg    0.3597035477667798
+    Attrib plas    -0.7337729811428005
+    Attrib pres    -0.19968126237445483
+    Attrib skin    0.5734565585604209
+    Attrib insu    0.9225485500391395
+    Attrib mass    -0.5032056346851044
+    Attrib pedi    0.3187372688136598
+    Attrib age    0.6988222411280891
+Sigmoid Node 15
+    Inputs    Weights
+    Threshold    -1.3628193475731674
+    Attrib preg    0.3051171129381235
+    Attrib plas    -0.7134511012605645
+    Attrib pres    -0.23945416750291298
+    Attrib skin    0.6058652667179104
+    Attrib insu    0.9395688398996054
+    Attrib mass    -0.39563573133710267
+    Attrib pedi    0.399265361346797
+    Attrib age    0.6210629371495621
+Sigmoid Node 16
+    Inputs    Weights
+    Threshold    -1.237250008184652
+    Attrib preg    1.1334063137014356
+    Attrib plas    -0.18822996945007944
+    Attrib pres    -0.38752647627224573
+    Attrib skin    1.3209531839593
+    Attrib insu    0.7656127797981339
+    Attrib mass    0.36822706160094715
+    Attrib pedi    1.3087568708463058
+    Attrib age    0.7276644571401997
+Sigmoid Node 17
+    Inputs    Weights
+    Threshold    -1.2602630882966368
+    Attrib preg    0.8465269844604079
+    Attrib plas    -0.30038149730633823
+    Attrib pres    -0.32706146684752485
+    Attrib skin    1.0323972834213542
+    Attrib insu    0.849485216484507
+    Attrib mass    0.22071208613913718
+    Attrib pedi    1.1579096698126392
+    Attrib age    0.5247774764997235
+Sigmoid Node 18
+    Inputs    Weights
+    Threshold    -1.23411224325701
+    Attrib preg    0.6838617546881637
+    Attrib plas    -0.313659120549882
+    Attrib pres    -0.261017927704109
+    Attrib skin    0.9356961783659544
+    Attrib insu    0.9179042455911953
+    Attrib mass    0.18237236560910722
+    Attrib pedi    1.0596838380886506
+    Attrib age    0.5423527911832049
+Sigmoid Node 19
+    Inputs    Weights
+    Threshold    -6.148822901858196
+    Attrib preg    5.862694499281354
+    Attrib plas    -0.742325253229677
+    Attrib pres    2.421706774622581
+    Attrib skin    -1.3196767729914176
+    Attrib insu    -1.0151022120469129
+    Attrib mass    -5.906617766885735
+    Attrib pedi    1.5246804867724177
+    Attrib age    6.711789274900415
+Sigmoid Node 20
+    Inputs    Weights
+    Threshold    -1.2465687405741581
+    Attrib preg    0.34848925503051514
+    Attrib plas    -0.47166464711773215
+    Attrib pres    -0.21212439582213888
+    Attrib skin    0.6183548036100713
+    Attrib insu    1.056337877648109
+    Attrib mass    -0.21158044075672794
+    Attrib pedi    0.6136824608550882
+    Attrib age    0.47979880914343204
+Sigmoid Node 21
+    Inputs    Weights
+    Threshold    -1.2211609050369014
+    Attrib preg    0.6970425441749373
+    Attrib plas    -0.37725094602053244
+    Attrib pres    -0.24141360160342487
+    Attrib skin    1.0365814162971636
+    Attrib insu    0.8384210303864505
+    Attrib mass    0.15231604111797475
+    Attrib pedi    1.144328295871071
+    Attrib age    0.5339453690441134
+Sigmoid Node 22
+    Inputs    Weights
+    Threshold    -6.112999669382728
+    Attrib preg    0.06199077222856149
+    Attrib plas    -2.829353002817155
+    Attrib pres    -12.790130331496105
+    Attrib skin    7.344857306759329
+    Attrib insu    -1.4858911943850275
+    Attrib mass    2.1975177242577337
+    Attrib pedi    -8.631557506266429
+    Attrib age    13.445620170139605
+Sigmoid Node 23
+    Inputs    Weights
+    Threshold    -1.5179151436685934
+    Attrib preg    0.3923530378411376
+    Attrib plas    -0.9695808587699831
+    Attrib pres    -0.16939203730298893
+    Attrib skin    0.6007847012606254
+    Attrib insu    0.8671704034004608
+    Attrib mass    -0.640218100168343
+    Attrib pedi    0.1539649566640865
+    Attrib age    0.7366893958260443
+Sigmoid Node 24
+    Inputs    Weights
+    Threshold    -5.8682736153042185
+    Attrib preg    -0.5176989179937082
+    Attrib plas    8.546652793489017
+    Attrib pres    -4.314413969487444
+    Attrib skin    -0.019462007835432265
+    Attrib insu    3.368568655826924
+    Attrib mass    -3.8098253185948434
+    Attrib pedi    -0.6202280800197546
+    Attrib age    -0.48886935123646097
+Sigmoid Node 25
+    Inputs    Weights
+    Threshold    -1.5670987596372419
+    Attrib preg    0.39796312585991844
+    Attrib plas    -1.2544975301451256
+    Attrib pres    -0.10834863985607038
+    Attrib skin    0.6639159448882849
+    Attrib insu    0.8718836566874812
+    Attrib mass    -0.7772395350112403
+    Attrib pedi    0.014389274449522841
+    Attrib age    0.7989067970100083
+Sigmoid Node 26
+    Inputs    Weights
+    Threshold    -1.2520462482286532
+    Attrib preg    0.36167693293832925
+    Attrib plas    -0.4435175704908843
+    Attrib pres    -0.18559628340130568
+    Attrib skin    0.6954681434453399
+    Attrib insu    1.0462313321747487
+    Attrib mass    -0.16065760295728157
+    Attrib pedi    0.6121585460973242
+    Attrib age    0.4756040052028493
+Sigmoid Node 27
+    Inputs    Weights
+    Threshold    0.07268713214504413
+    Attrib preg    3.1517164683668812
+    Attrib plas    -0.2850837385892479
+    Attrib pres    0.05265292338125759
+    Attrib skin    2.196616044507729
+    Attrib insu    0.7830855233296617
+    Attrib mass    0.5832989656624898
+    Attrib pedi    2.604904066021049
+    Attrib age    1.211502016759795
+Sigmoid Node 28
+    Inputs    Weights
+    Threshold    -1.8320899885714144
+    Attrib preg    0.8799203467647124
+    Attrib plas    -1.3486417912996531
+    Attrib pres    0.12164336413201429
+    Attrib skin    0.6539117947522927
+    Attrib insu    0.48388151271598345
+    Attrib mass    -1.125668931903014
+    Attrib pedi    0.25823815029981345
+    Attrib age    1.3043915706891502
+Sigmoid Node 29
+    Inputs    Weights
+    Threshold    -9.34902285246554
+    Attrib preg    2.714451056883836
+    Attrib plas    6.886569017232384
+    Attrib pres    1.6349044038557543
+    Attrib skin    -3.131478207017416
+    Attrib insu    2.316011688499593
+    Attrib mass    6.537770440165654
+    Attrib pedi    -3.537985575545274
+    Attrib age    -0.7458422594727078
+Sigmoid Node 30
+    Inputs    Weights
+    Threshold    -1.1809529068487563
+    Attrib preg    1.338270514655691
+    Attrib plas    -0.13220651516745532
+    Attrib pres    -0.4679672339390185
+    Attrib skin    1.4849391250508637
+    Attrib insu    0.6947148698763411
+    Attrib mass    0.44780297751607057
+    Attrib pedi    1.4145992967934027
+    Attrib age    0.8297252817042828
+Sigmoid Node 31
+    Inputs    Weights
+    Threshold    -1.0085591788257582
+    Attrib preg    1.7413361465775348
+    Attrib plas    -0.08149279082198506
+    Attrib pres    -0.44133534798167917
+    Attrib skin    1.7709474562031546
+    Attrib insu    0.5570790874167981
+    Attrib mass    0.5940117147002076
+    Attrib pedi    1.6015223046195788
+    Attrib age    1.036256493675916
+Sigmoid Node 32
+    Inputs    Weights
+    Threshold    -1.2383303998300983
+    Attrib preg    0.9378670958031963
+    Attrib plas    -0.3522953790093663
+    Attrib pres    -0.3182666513213915
+    Attrib skin    1.1092883117617558
+    Attrib insu    0.812762639431636
+    Attrib mass    0.2548873495148383
+    Attrib pedi    1.2293025554270074
+    Attrib age    0.5709287135997243
+Sigmoid Node 33
+    Inputs    Weights
+    Threshold    -1.0539020134898096
+    Attrib preg    1.5820639985776976
+    Attrib plas    -0.15731506809315746
+    Attrib pres    -0.328961963424776
+    Attrib skin    1.7193635629100974
+    Attrib insu    0.6280170961121
+    Attrib mass    0.40562134093812996
+    Attrib pedi    1.5346592909037116
+    Attrib age    0.9569952854118676
+Sigmoid Node 34
+    Inputs    Weights
+    Threshold    -1.2842184381561579
+    Attrib preg    0.3123687538193287
+    Attrib plas    -0.5782680457117695
+    Attrib pres    -0.2056125516920539
+    Attrib skin    0.6260568208514781
+    Attrib insu    1.0086536757331712
+    Attrib mass    -0.27560245592156285
+    Attrib pedi    0.5663854022388313
+    Attrib age    0.5154301396481382
+Sigmoid Node 35
+    Inputs    Weights
+    Threshold    -1.3227291722856775
+    Attrib preg    0.33981494568782783
+    Attrib plas    -0.6627479934166775
+    Attrib pres    -0.17963567416576745
+    Attrib skin    0.5937811155047795
+    Attrib insu    1.0173132036915864
+    Attrib mass    -0.4027765364266321
+    Attrib pedi    0.3419089565738179
+    Attrib age    0.5875719026794913
+Sigmoid Node 36
+    Inputs    Weights
+    Threshold    -1.2544246487650734
+    Attrib preg    0.5062183563316212
+    Attrib plas    -0.28581594354367107
+    Attrib pres    -0.24863281723687072
+    Attrib skin    0.880253487678277
+    Attrib insu    0.910250585757734
+    Attrib mass    0.1008969827911667
+    Attrib pedi    0.9294079548955493
+    Attrib age    0.5253012494203532
+Sigmoid Node 37
+    Inputs    Weights
+    Threshold    -1.1658441010495562
+    Attrib preg    0.976227528019983
+    Attrib plas    -0.44831111624677533
+    Attrib pres    -0.2185605591221144
+    Attrib skin    1.1594224126691517
+    Attrib insu    0.8744498682526878
+    Attrib mass    0.11540350933412911
+    Attrib pedi    1.2778420307754845
+    Attrib age    0.5890837516629179
+Sigmoid Node 38
+    Inputs    Weights
+    Threshold    -0.2853837663518015
+    Attrib preg    3.9172200646936535
+    Attrib plas    -0.15148116016583915
+    Attrib pres    -2.9586715669081163
+    Attrib skin    0.8711769318062913
+    Attrib insu    0.27906137444801404
+    Attrib mass    -0.448566242766557
+    Attrib pedi    3.6428445018136784
+    Attrib age    -0.12648012726740956
+Sigmoid Node 39
+    Inputs    Weights
+    Threshold    -0.2993392932840514
+    Attrib preg    2.2945404399578835
+    Attrib plas    0.058320108060006454
+    Attrib pres    0.13125906218541847
+    Attrib skin    2.6939222770129847
+    Attrib insu    0.27631016401379
+    Attrib mass    0.5317773993776104
+    Attrib pedi    2.129253323930364
+    Attrib age    1.4686762106783366
+Sigmoid Node 40
+    Inputs    Weights
+    Threshold    -3.2502407602049805
+    Attrib preg    -7.262448320088716
+    Attrib plas    -8.883004041456187
+    Attrib pres    2.617642103193186
+    Attrib skin    0.8678693402917372
+    Attrib insu    6.509681909036996
+    Attrib mass    0.293191709765063
+    Attrib pedi    6.918639370451609
+    Attrib age    -2.9393047875649763
+Sigmoid Node 41
+    Inputs    Weights
+    Threshold    -1.2410773856252983
+    Attrib preg    0.678596678377766
+    Attrib plas    -0.2613133543872147
+    Attrib pres    -0.2985420422532164
+    Attrib skin    0.9316549017221705
+    Attrib insu    0.9084813252817597
+    Attrib mass    0.13476279262743862
+    Attrib pedi    1.078095999399516
+    Attrib age    0.49961757401045354
+Sigmoid Node 42
+    Inputs    Weights
+    Threshold    -1.260311918864247
+    Attrib preg    0.34883324633367163
+    Attrib plas    -0.5451997238192366
+    Attrib pres    -0.22745643706417562
+    Attrib skin    0.6551477097150814
+    Attrib insu    0.9852425402004504
+    Attrib mass    -0.18730550346668393
+    Attrib pedi    0.6335018654550418
+    Attrib age    0.5192486728444559
+Sigmoid Node 43
+    Inputs    Weights
+    Threshold    -1.0734543457745263
+    Attrib preg    1.5554423061692193
+    Attrib plas    -0.110836631890365
+    Attrib pres    -0.3382776753791083
+    Attrib skin    1.7382823620422998
+    Attrib insu    0.6249197677133751
+    Attrib mass    0.3921948883391968
+    Attrib pedi    1.5219767383683582
+    Attrib age    0.9658999493375574
+Sigmoid Node 44
+    Inputs    Weights
+    Threshold    -1.8410081536567555
+    Attrib preg    0.7779958480698255
+    Attrib plas    -1.9034607721065022
+    Attrib pres    0.10905591839456086
+    Attrib skin    0.8271617303692187
+    Attrib insu    0.4961792279212554
+    Attrib mass    -1.0304693968498422
+    Attrib pedi    -0.013719695423280357
+    Attrib age    1.288608482069408
+Sigmoid Node 45
+    Inputs    Weights
+    Threshold    -1.2396342275362873
+    Attrib preg    0.6588859392779296
+    Attrib plas    -0.33081929732924203
+    Attrib pres    -0.23179355120777542
+    Attrib skin    0.9710596897831265
+    Attrib insu    0.8669224642909996
+    Attrib mass    0.15372623810261904
+    Attrib pedi    1.0832684894830034
+    Attrib age    0.5416799619379973
+Sigmoid Node 46
+    Inputs    Weights
+    Threshold    -4.455524989836149
+    Attrib preg    -0.776340695563654
+    Attrib plas    -2.9614643885937877
+    Attrib pres    6.415257853952553
+    Attrib skin    1.3814455527951943
+    Attrib insu    -0.549840865710992
+    Attrib mass    -3.139113759485918
+    Attrib pedi    -2.4720712682987207
+    Attrib age    1.7478103170524897
+Sigmoid Node 47
+    Inputs    Weights
+    Threshold    -1.2174367635083363
+    Attrib preg    0.47651919319858344
+    Attrib plas    -0.3801623191093653
+    Attrib pres    -0.22133133617970768
+    Attrib skin    0.7343676836946914
+    Attrib insu    0.9902810623990559
+    Attrib mass    -0.021397975531208358
+    Attrib pedi    0.8315743039078071
+    Attrib age    0.4900331911578109
+Sigmoid Node 48
+    Inputs    Weights
+    Threshold    -1.0029598357546685
+    Attrib preg    1.5847900861084125
+    Attrib plas    -0.40098118499224794
+    Attrib pres    -0.2492580546282544
+    Attrib skin    1.5491487624832487
+    Attrib insu    0.711966988031648
+    Attrib mass    0.31853853531469406
+    Attrib pedi    1.6026504765898621
+    Attrib age    0.8101031867153584
+Sigmoid Node 49
+    Inputs    Weights
+    Threshold    -1.308544673327674
+    Attrib preg    0.3573481736850597
+    Attrib plas    -0.6580216383407602
+    Attrib pres    -0.24382133118581847
+    Attrib skin    0.6089378915088921
+    Attrib insu    0.9689132755046402
+    Attrib mass    -0.3312075478697296
+    Attrib pedi    0.36502792006710716
+    Attrib age    0.6516393235245624
+Sigmoid Node 50
+    Inputs    Weights
+    Threshold    -2.7967437703462568
+    Attrib preg    1.0950519483672954
+    Attrib plas    -6.942911587194534
+    Attrib pres    2.9115534107986045
+    Attrib skin    -0.47446429046913396
+    Attrib insu    -0.913168737805318
+    Attrib mass    -0.14802190679050298
+    Attrib pedi    0.20773329269592639
+    Attrib age    1.5873942361870856
+Sigmoid Node 51
+    Inputs    Weights
+    Threshold    -1.7969014819254148
+    Attrib preg    0.7295630617143988
+    Attrib plas    -1.792775415157453
+    Attrib pres    0.1129492693986116
+    Attrib skin    0.7877152941267632
+    Attrib insu    0.5896872895412318
+    Attrib mass    -0.857696940728722
+    Attrib pedi    -0.1101555592985537
+    Attrib age    1.1297691895617883
+Sigmoid Node 52
+    Inputs    Weights
+    Threshold    0.8269133327542977
+    Attrib preg    4.908563485362804
+    Attrib plas    -0.7710836648260492
+    Attrib pres    -2.524168796395731
+    Attrib skin    0.7991129444293383
+    Attrib insu    0.22549737812446075
+    Attrib mass    -0.7748508393899182
+    Attrib pedi    5.457135522047941
+    Attrib age    -1.4445200310106014
+Sigmoid Node 53
+    Inputs    Weights
+    Threshold    -1.252808179460094
+    Attrib preg    0.3876894268831234
+    Attrib plas    -0.42790673556018377
+    Attrib pres    -0.25040918545824503
+    Attrib skin    0.6814909607245981
+    Attrib insu    0.9614882587091989
+    Attrib mass    -0.13293540019006617
+    Attrib pedi    0.6222762065468752
+    Attrib age    0.5730883493762281
+Sigmoid Node 54
+    Inputs    Weights
+    Threshold    -1.2519355931252538
+    Attrib preg    0.40104705652194206
+    Attrib plas    -0.4268617397516418
+    Attrib pres    -0.22860543513730705
+    Attrib skin    0.6858333124977201
+    Attrib insu    0.985901857528123
+    Attrib mass    -0.07537528048432629
+    Attrib pedi    0.7785963979349103
+    Attrib age    0.46707505008249195
+Sigmoid Node 55
+    Inputs    Weights
+    Threshold    -0.1076430901492195
+    Attrib preg    3.1382712569146047
+    Attrib plas    -0.09714181347017993
+    Attrib pres    -1.0058374281196865
+    Attrib skin    1.9143996718766767
+    Attrib insu    0.4329195109567515
+    Attrib mass    0.7609715071935217
+    Attrib pedi    2.4828707222929784
+    Attrib age    1.0604111128673257
+Sigmoid Node 56
+    Inputs    Weights
+    Threshold    -1.517291439769347
+    Attrib preg    0.3589743699729168
+    Attrib plas    -1.1019797927140833
+    Attrib pres    -0.12617250985168854
+    Attrib skin    0.6423820001352971
+    Attrib insu    0.9575871970779395
+    Attrib mass    -0.5792059553298204
+    Attrib pedi    0.04490887099626482
+    Attrib age    0.6419888662728301
+Sigmoid Node 57
+    Inputs    Weights
+    Threshold    -1.1381794166242643
+    Attrib preg    1.4388489761424583
+    Attrib plas    -0.16675993554610774
+    Attrib pres    -0.3592959653184669
+    Attrib skin    1.5456129591353232
+    Attrib insu    0.6911484183020591
+    Attrib mass    0.41262317098880313
+    Attrib pedi    1.4869117627729045
+    Attrib age    0.859392304454855
+Sigmoid Node 58
+    Inputs    Weights
+    Threshold    -1.2915553655340346
+    Attrib preg    0.31472434179207837
+    Attrib plas    -0.6231476293281412
+    Attrib pres    -0.2326875901172085
+    Attrib skin    0.6146693390887771
+    Attrib insu    0.9933099849970478
+    Attrib mass    -0.2482438409707161
+    Attrib pedi    0.5105652323654344
+    Attrib age    0.5668451619604449
+Sigmoid Node 59
+    Inputs    Weights
+    Threshold    -1.2822174881749409
+    Attrib preg    0.3430258456894555
+    Attrib plas    -0.5141914625202404
+    Attrib pres    -0.2306988046631787
+    Attrib skin    0.7064069878179027
+    Attrib insu    0.9832325084778021
+    Attrib mass    -0.11684887881645542
+    Attrib pedi    0.6433646434867263
+    Attrib age    0.4861382234088064
+Sigmoid Node 60
+    Inputs    Weights
+    Threshold    -1.983949075567747
+    Attrib preg    0.25696309714813015
+    Attrib plas    -3.050750545067781
+    Attrib pres    0.29051276832534695
+    Attrib skin    0.5313568144728829
+    Attrib insu    0.6951732203807832
+    Attrib mass    -0.9546774780436025
+    Attrib pedi    -0.30504551492244836
+    Attrib age    1.018095664563065
+Sigmoid Node 61
+    Inputs    Weights
+    Threshold    -0.6612354916271003
+    Attrib preg    3.014183938317046
+    Attrib plas    -0.03433499229195904
+    Attrib pres    -2.1119986470485648
+    Attrib skin    1.0087926843589787
+    Attrib insu    0.36678413265997345
+    Attrib mass    0.8088133953651759
+    Attrib pedi    2.346182696978609
+    Attrib age    0.561881893388342
+Sigmoid Node 62
+    Inputs    Weights
+    Threshold    0.07381378321082138
+    Attrib preg    3.047941145792603
+    Attrib plas    -0.04986136640612545
+    Attrib pres    -0.8714217686368965
+    Attrib skin    2.3847014228578467
+    Attrib insu    0.09173681262973292
+    Attrib mass    0.6715807413811943
+    Attrib pedi    2.7637840208726416
+    Attrib age    0.9166518172157923
+Sigmoid Node 63
+    Inputs    Weights
+    Threshold    -2.440080038412335
+    Attrib preg    -0.16717943743686686
+    Attrib plas    -3.1888234611516166
+    Attrib pres    1.2811284483204122
+    Attrib skin    -0.23858327883406383
+    Attrib insu    0.9075297481282295
+    Attrib mass    -0.8317511700301173
+    Attrib pedi    -0.5615005252862867
+    Attrib age    0.6414444493608616
+Sigmoid Node 64
+    Inputs    Weights
+    Threshold    -2.206233916575823
+    Attrib preg    0.189445815750795
+    Attrib plas    1.9006917558947194
+    Attrib pres    -4.215662350356621
+    Attrib skin    0.9426991400069259
+    Attrib insu    0.7764582560907942
+    Attrib mass    0.8856299397118356
+    Attrib pedi    2.257688559151175
+    Attrib age    -0.7842113028304671
+Sigmoid Node 65
+    Inputs    Weights
+    Threshold    -4.081256618610863
+    Attrib preg    -0.6753028942505719
+    Attrib plas    -5.73506922249434
+    Attrib pres    3.7288393936077213
+    Attrib skin    -1.7172148779456358
+    Attrib insu    0.4969642333780052
+    Attrib mass    -0.7832235116943277
+    Attrib pedi    -0.34913901738472697
+    Attrib age    0.15982786610083188
+Sigmoid Node 66
+    Inputs    Weights
+    Threshold    0.02130902176603646
+    Attrib preg    2.8195329704081034
+    Attrib plas    0.11993865342484847
+    Attrib pres    -0.12000293344383163
+    Attrib skin    2.770329409611203
+    Attrib insu    0.3363897170498539
+    Attrib mass    0.5846598002725645
+    Attrib pedi    2.5524118740448727
+    Attrib age    1.4555882720302653
+Sigmoid Node 67
+    Inputs    Weights
+    Threshold    -1.1879848931443404
+    Attrib preg    1.1629476644268604
+    Attrib plas    -0.2501423591377001
+    Attrib pres    -0.3291655864914264
+    Attrib skin    1.417326375493726
+    Attrib insu    0.6869829723741256
+    Attrib mass    0.3769241475770847
+    Attrib pedi    1.3827474374099475
+    Attrib age    0.7428393189286
+Sigmoid Node 68
+    Inputs    Weights
+    Threshold    -1.2757575506779322
+    Attrib preg    0.7504959123898056
+    Attrib plas    -0.3249756781830935
+    Attrib pres    -0.29408463365018617
+    Attrib skin    0.919333889182904
+    Attrib insu    0.8643929421740907
+    Attrib mass    0.1904353783134339
+    Attrib pedi    1.0925258400197355
+    Attrib age    0.46964431950362695
+Sigmoid Node 69
+    Inputs    Weights
+    Threshold    -0.7857067225000964
+    Attrib preg    2.0764191729972468
+    Attrib plas    -0.03492006190204136
+    Attrib pres    -0.386066142254011
+    Attrib skin    1.9710750495731653
+    Attrib insu    0.616042273620958
+    Attrib mass    0.4919134537916613
+    Attrib pedi    1.7259324021246505
+    Attrib age    1.26262175793581
+Sigmoid Node 70
+    Inputs    Weights
+    Threshold    -1.4796505430121547
+    Attrib preg    0.2501159387253848
+    Attrib plas    -1.0464149779244578
+    Attrib pres    -0.10798462346385826
+    Attrib skin    0.5746565614400589
+    Attrib insu    1.0535056026154304
+    Attrib mass    -0.6350254307939435
+    Attrib pedi    0.17499975434392867
+    Attrib age    0.521358185983269
+Sigmoid Node 71
+    Inputs    Weights
+    Threshold    -1.7888776317587312
+    Attrib preg    0.3398579596251357
+    Attrib plas    -1.842570197075512
+    Attrib pres    0.23702706527802048
+    Attrib skin    0.5336819567404008
+    Attrib insu    0.9460403437441721
+    Attrib mass    -0.936546676029797
+    Attrib pedi    -0.19288895458951974
+    Attrib age    0.7291893168724412
+Sigmoid Node 72
+    Inputs    Weights
+    Threshold    -1.26023362683418
+    Attrib preg    0.35457598044395594
+    Attrib plas    -0.5320474782540217
+    Attrib pres    -0.2672336071802512
+    Attrib skin    0.6652578632901835
+    Attrib insu    0.932881255347008
+    Attrib mass    -0.2092482207849799
+    Attrib pedi    0.5807449376067736
+    Attrib age    0.6191622711245346
+Sigmoid Node 73
+    Inputs    Weights
+    Threshold    -8.903688999288619
+    Attrib preg    -2.997507375608992
+    Attrib plas    -0.9955619768435883
+    Attrib pres    5.550884817159781
+    Attrib skin    -3.4355812384127633
+    Attrib insu    9.45705378554821
+    Attrib mass    -1.0644946098307828
+    Attrib pedi    -4.9478842334197894
+    Attrib age    -6.3166158027041
+Sigmoid Node 74
+    Inputs    Weights
+    Threshold    -1.2920069196892698
+    Attrib preg    0.35684942709438255
+    Attrib plas    -0.4932069934546361
+    Attrib pres    -0.18127667339559728
+    Attrib skin    0.6699302655050979
+    Attrib insu    0.9760464805021889
+    Attrib mass    -0.1772728817050129
+    Attrib pedi    0.5947836821044109
+    Attrib age    0.5192490162246521
+Sigmoid Node 75
+    Inputs    Weights
+    Threshold    -4.57652075408084
+    Attrib preg    -2.2276781829744157
+    Attrib plas    -2.909194214033869
+    Attrib pres    -0.7900368572618005
+    Attrib skin    -1.591491375319677
+    Attrib insu    1.745860542547946
+    Attrib mass    -15.441140104270815
+    Attrib pedi    0.9702078543593751
+    Attrib age    -1.3053284019397138
+Sigmoid Node 76
+    Inputs    Weights
+    Threshold    -1.8320452873081754
+    Attrib preg    0.6644042082742209
+    Attrib plas    -2.067064170111794
+    Attrib pres    0.10409672420896916
+    Attrib skin    0.8343310380652794
+    Attrib insu    0.6226818670549585
+    Attrib mass    -0.7016551604111467
+    Attrib pedi    -0.26821681462645
+    Attrib age    1.0894974269084803
+Sigmoid Node 77
+    Inputs    Weights
+    Threshold    -1.2105154483564304
+    Attrib preg    0.8449365818568965
+    Attrib plas    -0.3434801579096232
+    Attrib pres    -0.24218663010213373
+    Attrib skin    1.0533405846999215
+    Attrib insu    0.9085598283118257
+    Attrib mass    0.1760747100680198
+    Attrib pedi    1.1711162728959497
+    Attrib age    0.596516064953459
+Sigmoid Node 78
+    Inputs    Weights
+    Threshold    -3.3189475352874327
+    Attrib preg    -16.64854049277615
+    Attrib plas    1.5562776942073322
+    Attrib pres    -1.9738652946456021
+    Attrib skin    0.5306605078496239
+    Attrib insu    5.782041274899237
+    Attrib mass    3.4275215614374255
+    Attrib pedi    1.900468528948349
+    Attrib age    9.41705890964751
+Sigmoid Node 79
+    Inputs    Weights
+    Threshold    -1.6638646375555972
+    Attrib preg    0.38746911709814674
+    Attrib plas    -1.47964523583723
+    Attrib pres    0.04501703216202167
+    Attrib skin    0.6120200173037675
+    Attrib insu    0.9084449701909849
+    Attrib mass    -0.7685172443114224
+    Attrib pedi    -0.08644047340349802
+    Attrib age    0.7334171630872328
+Sigmoid Node 80
+    Inputs    Weights
+    Threshold    -1.2236074790211582
+    Attrib preg    0.673585996233486
+    Attrib plas    -0.42229811071827655
+    Attrib pres    -0.28823732730648294
+    Attrib skin    0.9416202596491325
+    Attrib insu    0.8617081568631587
+    Attrib mass    0.11830345298054931
+    Attrib pedi    1.0978907276589598
+    Attrib age    0.469327154441796
+Sigmoid Node 81
+    Inputs    Weights
+    Threshold    -1.2252704601912765
+    Attrib preg    0.77784202411629
+    Attrib plas    -0.2907773003931726
+    Attrib pres    -0.35562941643339857
+    Attrib skin    0.9958187563821617
+    Attrib insu    0.8877067472691524
+    Attrib mass    0.20214073937406327
+    Attrib pedi    1.1554028628574666
+    Attrib age    0.5221361128643495
+Class tested_negative
+    Input
+    Node 0
+Class tested_positive
+    Input
+    Node 1
+
+
+
+=== Error on test data ===
+
+Correctly Classified Instances          48               70.5882 %
+Incorrectly Classified Instances        20               29.4118 %
+Kappa statistic                          0.368 
+Mean absolute error                      0.3282
+Root mean squared error                  0.4846
+Total Number of Instances               68     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.786     0.423      0.75      0.786     0.767      0.734    tested_negative
+                 0.577     0.214      0.625     0.577     0.6        0.734    tested_positive
+Weighted Avg.    0.706     0.343      0.702     0.706     0.703      0.734
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 33  9 |  a = tested_negative
+ 11 15 |  b = tested_positive
+
