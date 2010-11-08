@@ -1,5 +1,0 @@
-@RELATION 'lattices - 15best'
-@ATTRIBUTE data date "mm/yyyy"
-@ATTRIBUTE fluxo NUMERIC
-@DATA
-12/2007,422755
