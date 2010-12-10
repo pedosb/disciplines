@@ -27,12 +27,12 @@ end
 err = desiredValue - finalValue;
 
 newErr = err / 10;
-%equações da apostila pg 78
+%equações da apostila pg 76
 kp = (1-err) / err;
 kpc = (1-newErr) / newErr
 
 poleValue = input('Valor do novo polo? ');
-%equação apostila pg 78
+%equação apostila pg 77
 zeroValue = (kpc/kp)*poleValue;
 
 disp(['Novo zero "' num2str(zeroValue) '"']);
