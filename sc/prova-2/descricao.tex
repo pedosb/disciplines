@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{subfig}
 \usepackage{multirow}
+\usepackage{verbatim}
 \usepackage[utf8]{inputenc}
 
 \graphicspath{{figuras/}}
@@ -83,6 +84,67 @@ sgrid(0.172, 'xi')
    \caption{Esquemas montados no $simulink$ para simular os sistemas
       do Problema~\ref{sec:pi_ideal}}
    \label{fig:sis1_simulink}
+\end{figure}
+
+\section{Projeto de Compensador por Atraso de Fase}\label{sec:cont_fase}
+Devemos compensar o sistema da Equação~\ref{eq:q2}, com um
+compensador por atraso de fase. Para isso desenvolvemos
+os códigos das Figuras~\ref{verb:lgrGain},~\ref{verb:q2} e~\ref{fig:q2_simulink}, onde calculamos
+primeiramente o ganho do sistema não controlado $K=161$ (Figura~\ref{fig:q2_lgr}).
+Simulamos e encontramos seu erro de regime ($V_r=0.8895$)
+e dividimo-os por 10, para encontrar $K_{pc}=89.5002$, com esse
+definimos que nosso novo polo deve estar em $p_c=-0.013$,
+a partir do qual calculamos o novo zero $z_c=-0.14453$ e ganho
+$K=155$ (Figura~\ref{fig:q2_lgr_controlado}).
+Simulamos então o novo sistema, o resultado é mostrado na Figura~\ref{fig:q2_sim},
+e a saída de execução do programa na Figura~\ref{verb:q2_out}.
+
+\begin{equation}
+G(s)=\frac{K}{s(s+1)(s+2)(s+10)}
+\label{eq:q2}
+\end{equation}
+
+\begin{figure}[ht]
+   \centering
+   \subfloat[LGR para o sistema da Equação~\ref{eq:q2} não controlado.]
+      {\label{fig:q2_lgr}\includegraphics[width=0.8\textwidth]{q2_lgr}}\\
+   \subfloat[LGR para o sistema da Equação~\ref{eq:q2} controlado, com zero em
+      $-0.14453$ e polo em $-0.013$.]
+      {\label{fig:q2_lgr_controlado}\includegraphics[width=0.8\textwidth]{q2_lgr_controlado}}
+   \caption{LGR para solução do Problema~\ref{sec:cont_fase}}
+\end{figure}
+
+\begin{figure}[ht]
+   \centering
+   \includegraphics[width=0.9\textwidth]{q2_sim}
+   \caption{Resultado da simulação do sistema da Equação~\ref{eq:q2}
+      original e controlado conforme Problema~\ref{sec:cont_fase}.}
+   \label{fig:q2_sim}
+\end{figure}
+
+\begin{figure}[ht]
+   \centering
+   \includegraphics[width=0.9\textwidth]{q2_simulink}
+   \caption{Sistema do $simulink$ utilizado no programa da Figura~\ref{verb:q2}}
+   \label{fig:q2_simulink}
+\end{figure}
+
+\begin{figure}[ht]
+   \verbatiminput{lgrGain.m}
+   \caption{Função para gerar o LGR e solicitar o ganho para o usuário o ganho do sistema.}
+   \label{verb:lgrGain}
+\end{figure}
+
+\begin{figure}[ht]
+   \verbatiminput{q2.m}
+   \caption{Função para resolver o problema da Seção~\ref{sec:cont_fase}}
+   \label{verb:q2}
+\end{figure}
+
+\begin{figure}[ht]
+   \verbatiminput{q2_out.txt}
+   \caption{Saída da execução do programa da Figura~\ref{verb:q2_out}.}
+   \label{verb:q2_out}
 \end{figure}
 
 \bibliographystyle{plain}

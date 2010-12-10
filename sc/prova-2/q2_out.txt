@@ -1,0 +1,24 @@
+
+simName =
+
+q2_sim
+
+ 
+Zero/pole/gain:
+        1
+------------------
+(s+1) (s+2) (s+10)
+ 
+ganho? 161
+regime "0.8895"? [New]
+Valor do novo polo? -0.013
+Novo zero "-0.14453"
+ 
+Zero/pole/gain:
+         (s+0.1445)
+----------------------------
+(s+1) (s+2) (s+10) (s+0.013)
+ 
+ganho? 155
+Current plot held
+Current plot released
