@@ -80,6 +80,7 @@
 \newcommand*{\linhapesquisa}[1]{\renewcommand*{\@linhapesquisa}{#1}}
 
 \newcommand{\fazercapa}{
+	\singlespacing
 	{
 	\Large
 	\begin{center}
@@ -89,7 +90,7 @@
 
 	{
 	\noindent
-	\textbf{Título do Projeto de Pesquisa:} \\
+	\textbf{Título do projeto de pesquisa:} \\
 	\@titulo \defspace
 	\textbf{Aluno:} \\
 	\@autor \defspace

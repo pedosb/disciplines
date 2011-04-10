@@ -1,13 +1,19 @@
 \documentclass{ufpaanteprojeto}
 
+
 \usepackage{graphicx}
 %\graphicspath{{figures/}{fotos/}}
 \usepackage{subfig}
 \usepackage{multirow}
 \usepackage[table]{xcolor}
+\usepackage{url}
+%separação silábica
+\usepackage[T1]{fontenc}
 
+\usepackage{setspace}
 
-%\onehalfspacing
+\hyphenation{LibreOffice}
+
 
 \begin{document}
 
@@ -18,23 +24,191 @@
 \linhapesquisa{Reconhecimento automático de voz}
 
 \fazercapa
-
+\onehalfspacing
 
 \section{Resumo}
-\section{Objetivos}
+A interface homem-máquina encontra-se cada vez mais amigável. O que
+antigamente era feito através de cartões perfurados, hoje é possível
+através do que conhecemos como teclados (um conjunto de teclas
+pré-definidas), \emph{mouses}, incluindo a tecnologia \textit{touch
+screen}, onde a tela mutável é sensível ao toque. Consideráveis
+esforços vêm sendo reunidos para melhorar cada vez mais essa
+comunicação, visando tornar realidade o que hoje é mostrado em
+filmes de ficção científica, onde uma máquina é capaz de se
+comunicar através da fala, pensar e agir como um ser humano.
+
+Acredita-se que através do Reconhecimento Automático de Voz (RAV) e
+da Síntese de Voz (TTS) seja possível conseguir uma interação mais
+rápida e prática com a máquina. Várias são as aplicações que podem
+usar a voz como interface, principalmente dentro das áreas de
+acessibilidade e automação.
+
+Hoje, existem no mercado alguns bons sintetizadores de voz com
+suporte ao Português Brasileiro (PB), como é o caso do
+\textit{eSpeak}~\cite{espeak}. No entanto, quando se fala em RAV,
+não se tem a mesma disponibilidade. Os principais sistemas RAV
+desenvolvidos com suporte ao PB foram o \textit{ViaVoice} da
+IBM~\cite{viavoice} e o \textit{FreeSpeech 2000} da Nuance.
+Entretanto, ambos foram descontinuados. Em contrapartida, quando se
+fala em sistemas RAV para outras línguas, como a inglesa, existem
+reconhecedores que possuem um excelente desempenho, entre
+eles podemos citar o \textit{Dragon Naturally
+Speaking}~\cite{dragonnuance} e o \textit{Windows Speech
+Recognition}~\cite{windowsrecognition}.
+
+Neste trabalho desenvolveremos um completo \textit{framework}
+para desenvolvimento de aplicações que utilizam reconhecimento
+de voz, este será um \textit{software} livre, isto significa que
+programadores poderão usar RAV em suas aplicações sem nenhum
+custo. Além disso, desenvolveremos aplicativos que possibilitarão
+navegação Web utilizando apenas voz e ditado para a suíte
+de escritório LibreOffice. Esses serão chamados
+\textit{CorujaNavigator} e \textit{SpeechOO} respectivamente.
+
+\section{Objetivos} \label{objetivos}
+O estado da arte das tecnologias de voz são os modelos ocultos de
+Markov (HMM)~\cite{Patricktcc,microsoftrecognizer}. Nesse contexto,
+para se construir um sistema RAV, é preciso, primeiramente, de uma
+grande base de dados (\emph{corpus}) para treinamento e teste do
+sistema. Essas bases são compostas de arquivos de áudio e suas
+respectivas transcrições ortográficas. De posse de uma base de dados
+robusta, é possível construir os modelos acústico e de linguagem
+utilizados no processo de decodificação.
+
+Este trabalho tem como objetivo geral a disponibilização de recursos
+para desenvolvimento de aplicações utilizando RAV em PB. Para isso
+é necessário a criação de recursos como modelos acústicos
+(AM) e de linguagem (LM). Distribuir esses recursos 
+possibilitará que o programador se preocupe apenas
+em desenvolver sua aplicação utilizando RAV, sem precisar
+aprender detalhes da tecnologia. Porém disponibilizar
+os modelos não é suficiente, pois os decodificadores
+\textit{open-source}~\cite{Young06,Lee01-2,Walker04}
+apresentam API pouco flexíveis quanto a linguagem de
+programação além de exigirem um conhecimento
+da tecnologia de RAV.
+
+Dessa forma, visamos desenvolver também uma API compatível com a
+interface Common Language Runtime (CLR)~\cite{clrsite}, essa permitirá
+o desenvolvimento de aplicativos em linguagens de programação
+do Microsoft .NET Framework~\cite{dotnetsite}. Dessa forma, 
+o programador poderá se concentrar em desenvolver seu aplicativo,
+sem se preocupar com detalhes de RAV, além de poder utilizar
+recursos de várias linguagens de programação.
+
+Uma vez disponibilizados esses recursos serão criadas duas aplicações
+exemplo, o \textit{CorujaNavigator} e o \textit{SpeechOO},
+a primeira tornará possível o acesso a Websites por deficientes
+visuais e motores, isto é, o usuário utilizará apenas voz para controlar
+a aplicação. Já o \textit{SpeechOO} utilizará os recursos desenvolvidos
+para permitir ditado para a ferramenta de escritório
+LibreOffice~\cite{libreofficesite}.
+
 \section{Justificativa}
+É observada uma grande oferta de \emph{softwares} com tecnologias de
+voz para várias línguas, como a inglesa, japonesa e chinesa. Esses
+reconhecedores e sintetizadores são conhecidos na área como
+\emph{engines} de voz. Contudo, poucos são os esforços destinados a
+língua portuguesa. A \textit{Microsoft} lançou recentemente seu
+\emph{engine} de reconhecimento de voz para
+PB~\cite{sampleenginemicrosoftpb}, porém existem restrições, como
+código fonte proprietário, dificuldades na utilização, entre outras.
+
+O projeto proposto almeja a implementação de recursos que
+tornarão viável o desenvolvimento de aplicações utilizando
+RAV em PB. Esse terá uma grande influência na área, pois por
+ser um projeto \textit{open-source} possibilitará o uso de RAV
+sem custos, difundindo-se livremente entre diversos
+programadores e grupos de pesquisa.  Um dos interessados pelo
+projeto é o aplicativo \textit{FFTranscriber}~\cite{fftranscriber}
+cuja intenção é diminuir consideravelmente o tempo destinado
+à perícia de transcrições de áudio forense.
+
 \section{Relevância do estudo}
+Não é observado hoje nenhum \textit{framework open-source}
+para desenvolvimento de aplicações utilizando reconhecimento
+de voz em PB. Dessa forma o presente trabalho é essencial
+para o desenvolvimento dessa área no que diz respeito
+ao Português Brasileiro.
+
+Os recursos disponibilizados poderão ser utilizados para
+o desenvolvimento de diversos aplicativos. Esses poderão
+influenciar várias ações do nosso cotidiano, como tarefas de
+automação, entretenimento e principalmente acessibilidade
+que desenvolve um papel de desenvolvimento social.
+
 \section{Problema da pesquisa a ser investigado}
+Um dos principais problemas nessa tarefa será a transcrição
+de áudio, pois esse é um trabalho cansativo e braçal.
+Serão investigadas alternativas para tentar de automatizar ao máximo
+essa tarefa, viabilizando a construção de \textit{corpus}
+de áudio cada vez maiores.
+
+A criação da API em CLR exigirá conhecimentos
+de linguagem C, C++, C++/CLI e CLR, além do projeto Julius.
+Esse será o maior desafio do projeto, visto que não existe
+nenhuma garantia da possibilidade de utilizar o Julius em
+um compilador compatível com C++/CLI.
+
+No que diz respeito ao CorujaNavigator métodos de
+aprendizagem serão aplicados, para que se torne possível
+filtras de páginas Web textos de interesse a serem
+sintetizados. Já para o SpeechOO será necessário
+a investigação do desenvolvimento de
+\textit{plugins} para o LibreOffice.
+
 \section{Metas}
+Ao final desse projeto os seguintes recursos deverão ser
+disponibilizados:
+\begin{itemize}
+	\item Uma base de voz com aproximadamente 16 horas de áudio totalmente
+		transcrita.
+	\item \emph{Scripts} para coleta e formatação de
+		textos extraídos automaticamente da Internet (\textit{crawling}),
+		compondo um base de texto com mais de 1 milhão de
+		sentenças.
+	\item O aplicativo \textit{CorujaNavigator}: Um navegador Web \textit{hands-free}.
+	\item O aplicativo \textit{SpeechOO}: Ditado no LibreOffice.
+	\item O pacote Coruja: Um sistema de reconhecimento
+		de voz para português brasileiro.
+\end{itemize}
+
 \section{Metodologia}
+A tarefa de transcrição e edição dos arquivos de áudio será feita
+utilizando o programa \textit{Transcriber}~\cite{Transcriber-SpeechComm2000}.
+Esse \emph{software} possui uma interface que permite ao mesmo tempo
+escutar e transcrever o áudio. Será desenvolvido um
+\textit{script} para formatação automática das transcrições. Alguns
+exemplos das operações realizadas que devem ser realizadas são:
+remoção de marcações (``tags''); conversão de letras minúsculas
+em maiúsculas; expansão de números e siglas; e correção de
+palavras gramaticalmente incorretas.
+
+Para a criação e avaliação dos modelos estatísticos faremos uso dos
+\emph{softwares}: HTK~\cite{Young06}, Julius~\cite{Lee01-2} e
+SRILM~\cite{stolcke02}. O HTK é uma ferramenta que permite manipular
+HMMs; o Julius, é um decodificador \textit{open-source};
+e o SRILM é um \textit{toolkit} para construção de modelos de linguagem.
+
+Para a construção da API compatível com CLR será usada a linguagem
+de programação C++/CLI, pois a partir dela será possível controlar
+o Julius (linguagem C) e desenvolver métodos a serem utilizados em CLR.
+\newpage
+
 \section{Cronograma de execução}
+\newcommand{\m}{\cellcolor{black}}
 \begin{table}[htp]
 	\centering
-	\begin{tabular}{|p{8cm}|c|c|c|c|c|c|}
+	\begin{tabular}{|p{9cm}|c|c|c|c|c|c|}
 		\hline
 		\multirow{2}{*}{\textbf{Atividades}} & \multicolumn{6}{|c|}{\textbf{Meses de execução TCC I}} \\\cline{2-7}
 		& 01 & 02 & 03 & 04 & 05 & 06 \\\hline
-		Atividade X & \cellcolor{black} & & & & & \\\hline
+		Transcrição de áudio & \m & \m & \m & \m & \m & \m \\\hline
+		Estudo de linguagens CLR & \m & \m & \m & \m & & \\\hline
+		Estudo do código do Julius & & & \m & \m & & \\\hline
+		Utilização do código do Julius em compilador compatível com CLR & & & & \m & \m & \m \\\hline
+		Projeto de API para fácil utilização de RAV & & & & & \m & \m \\\hline
+		Criação de \textit{scripts} para crawling & & & & & \m & \m \\\hline
 	\end{tabular}
 	\caption{Cronograma de execução do TCC I}
 	\label{tab:cronogramatcci}
@@ -42,11 +216,15 @@
 
 \begin{table}[htp]
 	\centering
-	\begin{tabular}{|p{8cm}|c|c|c|c|c|c|}
+	\begin{tabular}{|p{9cm}|c|c|c|c|c|c|}
 		\hline
 		\multirow{2}{*}{\textbf{Atividades}} & \multicolumn{6}{|c|}{\textbf{Meses de execução TCC II}} \\\cline{2-7}
 		& 01 & 02 & 03 & 04 & 05 & 06 \\\hline
-		Atividade X & \cellcolor{black} & & & & & \\\hline
+		Implementação da API projetada & \m & \m & \m & & & \\\hline
+		Desenvolvimento do CorujaNavigator & & & \m & \m & \m & \\\hline
+		Estudo de desenvolvimento de \textit{plugins} para o LibreOffice & & \m & \m & & & \\\hline
+		Desenvolvimento do SpeechOO & & & & \m & \m & \m \\\hline
+		Desenvolvimento de manuais e documentação & & & \m & \m & \m & \m \\\hline
 	\end{tabular}
 	\caption{Cronograma de execução do TCC II}
 	\label{tab:cronogramatccii}
