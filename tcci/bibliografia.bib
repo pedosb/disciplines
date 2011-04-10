@@ -1,0 +1,137 @@
+%Copiado de: http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management
+% Para usar deve-se colocar um arroba na especificação (ver último exemplo)
+ An article from a magazine or a journal. 
+article{artigo,
+    author    = "",
+    title     = "",
+    journal   = "",
+    %volume   = "",
+    %number   = "",
+    %pages    = "",
+    year      = "XXXX",
+    %month    = "",
+    %note     = "",
+}
+
+ A published book 
+book{Xbook,
+    author    = "",
+    title     = "",
+    publisher = "",
+    %volume   = "",
+    %number   = "",
+    %series   = "",
+    %address  = "",
+    %edition  = "",
+    year      = "XXXX",
+    %month    = "",
+    %note     = "",
+}
+
+ bound work without a named publisher or sponsor.
+booklet{Xbooklet,
+    %author   = "",
+    title     = "",
+    %howpublished   = "",
+    %address  = "",
+    year      = "XXXX",
+    %month    = "",
+    %note     = "",
+}
+
+ Equal to inproceedings
+conference{Xconference,
+    author    = "",
+    title     = "",
+    booktitle = "",
+    %editor   = "",
+    %volume   = "",
+    %number   = "",
+    %series   = "",
+    %pages    = "",
+    %address  = "",
+    year      = "XXXX",
+    %month    = "",
+    %publisher= "",
+    %note     = "",
+}
+
+inbook 
+ A section of a book
+  Required fields: author/editor, title, chapter and/or pages, publisher, year.
+  Optional fields: volume/number, series, type, address, edition, month, note.
+
+incollection 
+ A section of a book having its own title.
+  Required fields: author, title, booktitle, publisher, year.
+  Optional fields: editor, volume/number, series, type, chapter, pages, address, edition, month, note.
+
+inproceedings 
+ An article in a conference proceedings.
+  Required fields: author, title, booktitle, year.
+  Optional fields: editor, volume/number, series, pages, address, month, organization, publisher, note.
+
+manual 
+ Technical manual
+  Required fields: title.
+  Optional fields: author, organization, address, edition, month, year, note.
+
+ Master's thesis
+mastersthesis{Xthesis,
+    author    = "",
+    title     = "",
+    school    = "",
+    %type     = "diploma thesis",
+    %address  = "",
+    year      = "XXXX",
+    %month    = "",
+    %note     = "",
+}
+
+ Template useful for other kinds of publication
+misc{Xmisc,
+    %author    = "",
+    %title     = "",
+    %howpublished = "",
+    %year     = "XXXX",
+    %month    = "",
+    %note     = "",
+}
+
+phdthesis 
+ Ph.D. thesis
+  Required fields: author, title, year, school.
+  Optional fields: address, month, keywords, note.
+
+proceedings 
+ The proceedings of a conference.
+  Required fields: title, year.
+  Optional fields: editor, volume/number, series, address, month, organization, publisher, note.
+
+techreport 
+ Technical report from educational, commercial or standardization institution.
+techreport{Xtreport,
+    author    = "",
+    title     = "",
+    institution = "",
+    %type     = "", 
+    %number   = "",
+    %address  = "",
+    year      = "XXXX",
+    %month    = "",
+    %note     = "",
+}
+
+unpublished 
+ An unpublished article, book, thesis, etc.
+  Required fields: author, title, note.
+  Optional fields: month, year.
+
+@article{AbedonHymanThomas2003,
+  author = "Abedon, S. T. and Hyman, P. and Thomas, C.",
+  year = "2003",
+  title = "Experimental examination of bacteriophage latent-period evolution as a response to bacterial availability",
+  journal = "Applied and Environmental Microbiology",
+  volume = "69",
+  pages = "7499--7506"
+}

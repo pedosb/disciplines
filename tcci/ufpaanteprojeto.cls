@@ -3,6 +3,52 @@
 % Data: 10/04/2010
 %%%%%
 
+%%%%%
+% Deve ser usando como:
+% \documentclass{ufpaanteprojeto}
+% \usepackage{multirow}
+% \usepackage[table]{xcolor}
+% 
+% \titulo{título}
+% \autor{autor}
+% \orientador{Orientador}
+% \coorientador{Coorientador} %Opcional
+% \linhapesquisa{Linha de Pesquisa}
+% \section{Resumo}
+% \section{Objetivos}
+% \section{Justificativa}
+% \section{Relevância do estudo}
+% \section{Problema da pesquisa a ser investigado}
+% \section{Metas}
+% \section{Metodologia}
+% \section{Cronograma de execução}
+% \begin{table}[htp]
+% 	\centering
+% 	\begin{tabular}{|p{8cm}|c|c|c|c|c|c|}
+% 		\hline
+% 		\multirow{2}{*}{\textbf{Atividades}} & \multicolumn{6}{|c|}{\textbf{Meses de execução TCC I}} \\\cline{2-7}
+% 		& 01 & 02 & 03 & 04 & 05 & 06 \\\hline
+% 		Atividade X & \cellcolor{black} & & & & & \\\hline
+% 	\end{tabular}
+% 	\caption{Cronograma de execução do TCC I}
+% 	\label{tab:cronogramatcci}
+% \end{table}
+% 
+% \begin{table}[htp]
+% 	\centering
+% 	\begin{tabular}{|p{8cm}|c|c|c|c|c|c|}
+% 		\hline
+% 		\multirow{2}{*}{\textbf{Atividades}} & \multicolumn{6}{|c|}{\textbf{Meses de execução TCC II}} \\\cline{2-7}
+% 		& 01 & 02 & 03 & 04 & 05 & 06 \\\hline
+% 		Atividade X & \cellcolor{black} & & & & & \\\hline
+% 	\end{tabular}
+% 	\caption{Cronograma de execução do TCC II}
+% 	\label{tab:cronogramatccii}
+% \end{table}
+% \bibliographystyle{plain}
+% \bibliography{bibliografia}
+%%%%%
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{ufpaanteprojeto}[10/04/2011 v0.1 Baseado em RESOLU??O EngComp 02/ 2008 - DE 05 de setembro de 2008]
 
