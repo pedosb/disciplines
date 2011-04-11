@@ -106,25 +106,28 @@
 }
 
 \AtEndDocument{
-\vspace{30pt}
+%\vspace{30pt}
 \begin{noindent}
 \begin{center}
 \rule{10cm}{0.2mm}\\
 \textbf{Orientador:} \@orientador
 
-\vspace{30pt}
+%\vspace{30pt}
+\vspace{13pt}
 \ifthenelse{\equal{\@coorientador}{}}{}{
 \rule{10cm}{0.2mm}\\
 \textbf{Co-orientador:} \@coorientador
 }
 
-\vspace{30pt}
+%\vspace{30pt}
+\vspace{13pt}
 \rule{10cm}{0.2mm}\\
 \textbf{Aluno:} \@autor
 \end{center}
 
 \begin{flushright}
-\vspace{30pt}
+%\vspace{30pt}
+\vspace{5pt}
 Belém do Pará, \rule{1.3cm}{0.2mm} de \rule{4cm}{0.2mm} de \rule{2.6cm}{0.2mm}
 \end{flushright}
 \end{noindent}
