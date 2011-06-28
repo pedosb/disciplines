@@ -53,8 +53,7 @@
 \ProvidesClass{ufpaanteprojeto}[10/04/2011 v0.1 Baseado em RESOLU??O EngComp 02/ 2008 - DE 05 de setembro de 2008]
 
 \LoadClass[12pt,a4paper]{article}
-\pagestyle{empty}
-\RequirePackage[inner=30mm,outer=20mm,top=30mm,bottom=20mm]{geometry}
+%\RequirePackage[inner=30mm,outer=20mm,bottom=20mm]{geometry}
 \RequirePackage[brazil]{babel}
 %Fonte arial
 \renewcommand{\rmdefault}{phv}
@@ -84,7 +83,7 @@
 	{
 	\Large
 	\begin{center}
-		\textbf{Formulário de Ante-Projeto de Trabalho de Conclusão de Curso} \\
+		\textbf{Relatório de Trabalho de Conclusão de Curso I} \\
 	\end{center}
 	}
 
@@ -132,5 +131,50 @@ Belém do Pará, \rule{1.3cm}{0.2mm} de \rule{4cm}{0.2mm} de \rule{2.6cm}{0.2mm}
 \end{flushright}
 \end{noindent}
 }
+
+%a4 size 21cm x 29.7cm
+%header 3cm
+\setlength{\topmargin}{0pt}
+\setlength{\voffset}{-2.3cm}%0.24cm
+\setlength{\headsep}{0.24cm}%0.24cm
+\setlength{\headheight}{2.52cm}
+%right 3cm
+\setlength{\hoffset}{-1.04cm}%1.5cm
+\setlength{\oddsidemargin}{1.5cm}%1.5cm
+\addtolength{\marginparsep}{-10pt}
+\setlength{\marginparsep}{0.35cm}
+\setlength{\marginparwidth}{2.7cm}%2.7cm
+%footer 2cm
+\setlength{\footskip}{1.25cm}
+%left 2cm
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24.7cm}
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+% remove everything 
+\fancyhf{}
+% remove lines as well
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancyfoot[CEO]{\thepage}
+
+%\fancyhead{}
+%\fancyhead[EOHL]{
+%\fancyplain{}\includegraphics[height=2cm]{logo_ufpa}
+%}
+\RequirePackage{wrapfig}
+\fancyhead[LEO]{
+	\begin{wrapfigure}{L}{1.57cm}
+		\vspace{-1cm}
+		\includegraphics[height=2cm]{logo_ufpa}
+	\end{wrapfigure}
+	\footnotesize
+	\textbf{Universidade Federal do Pará \\
+	Instituto de Tecnologia \\
+	Faculdade de Engenharia da Computação\\}
+}
+
 
 \endinput

@@ -1,10 +1,10 @@
 \documentclass{ufpaanteprojeto}
 
-
 \usepackage{graphicx}
-%\graphicspath{{figures/}{fotos/}}
+\graphicspath{{figures/}}
 \usepackage{subfig}
 \usepackage{multirow}
+\usepackage{booktabs}
 \usepackage[table]{xcolor}
 \usepackage{url}
 %separação silábica
@@ -12,8 +12,10 @@
 
 \usepackage{setspace}
 
-\hyphenation{LibreOffice}
+\hyphenation{LibreOffice re-co-nhe-ci-men-to fa-la-dos trans-cri-ção
+cons-tru-ção se-me-lhan-te fe-de-ral ou-tras}
 
+\newcommand{\comment}[1]{}
 
 \begin{document}
 
@@ -193,6 +195,230 @@ e o SRILM é um \textit{toolkit} para construção de modelos de linguagem.
 Para a construção da API compatível com CLR será usada a linguagem
 de programação C++/CLI, pois a partir dela será possível controlar
 o Julius (linguagem C) e desenvolver métodos a serem utilizados em CLR.
+
+\section{Resultados}
+\label{resultados}
+
+Nesse período de desenvolvimento de TCCI o projeto atingiu os seguintes objetivos:
+
+\begin{itemize}
+    \item Composição de uma base de voz com aproximadamente 16 horas de áudio totalmente
+transcrita.
+    \item Elaboração de \emph{scripts} para coleta e formatação de
+textos extraídos automaticamente da Internet, compondo um base de
+texto com cerca de 1 milhão de sentenças até o momento.
+    \item Como prova de
+conceito, foi desenvolvido o aplicativo PPTController,
+que utiliza a LaPSAPI dentre outros recursos próprios aqui construídos.
+\end{itemize}
+
+No final obteve-se um bom desempenho utilizando gramáticas
+controladas, fato que pode ser comprovado pela publicação deste
+trabalho na \emph{International Conference on Computational Processing of the Portuguese Language} (PROPOR 2010), essa que é a conferência
+internacional mais respeitada na área de Processamento de Linguagem
+Natural para a língua portuguesa.
+
+Os recursos descritos a seguir estão disponíveis juntamente com seus códigos
+fonte na página do Projeto FalaBrasil~\cite{falabrasilsite}.
+
+\subsection{LaPSStory}\label{sec:story}
+
+A criação de um grande \emph{corpus} não é trivial, já que é preciso
+a transcrição correta do áudio, contratação de locutores, enfim,
+atividades que despendem muito tempo e recurso.
+
+Visando contornar essa situação, buscou-se montar um \emph{corpus} a
+partir de livros falados (\emph{audiobooks}), que são livros
+narrados por locutores profissionais. Desse modo, podemos elaborar
+facilmente as transcrições do texto. Uma dificuldade encontrada
+nessa abordagem é o fato do texto ser lido por apenas um locutor,
+característica que torna o \emph{corpus} menos eficiente, já que não
+se consegue obter diferenças na fala, como os sotaques. Outro
+problema em bases de livros falados é que os arquivos de áudio
+possuem em média 70 minutos de duração. Com isso, esses arquivos
+precisam ser editados em arquivos menores de 30 segundos, para que
+possam ser usados no processo de construção do modelo acústico.
+
+O trabalho então foi organizar 5 horas e 19 minutos de áudio e
+compor sua transcrição ortográfica. Atividade feita manualmente.
+Este \emph{corpus} foi utilizado para a construção dos modelos
+probabilísticos usados em~\cite{sbrt09}.
+
+\subsection{Corpus da Constituição}\label{sec:const}
+
+Outra solução encontrada para a obtenção de \emph{corpus} de voz é
+uma estratégia semelhante a dos livros falados (Seção~\ref{sec:story}) e consiste na
+aquisição da legislação brasileira em áudio, mais especificamente a
+Constituição Federal, fornecida pelo Senado Federal
+em~\cite{legislacaoemaudio}.
+
+Foram então convertidos em arquivos de 30 segundos cerca de 9 horas
+de áudio da constituição e 1,5 hora do Código de Defesa do Consumidor.
+Juntamente com o LaPSStory este \emph{corpus} foi
+utilizado para a construção dos modelos probabilísticos usados
+em~\cite{propor10}.
+
+\subsection{LaPSNews}\label{sec:lapsnews}
+
+Os modelos de linguagem são essenciais dentro de um sistema RAV, já
+que assumem a função de caracterizar a língua. Esses modelos são
+tipicamente construídos utilizando-se de modelos interpolados de
+transcrições e textos de jornais, tais modelos são largamente
+utilizados em tarefas de reconhecimento de voz em tempo real. O
+corpus inicialmente utilizado foi o Corpus de Extratos de Textos
+Eletrônicos NILC/Folha de S. Paulo (CETENFolha), um corpus com
+aproximadamente 24 milhões de palavras, criado pelo projeto
+Linguateca\footnote{www.linguateca.pt} com textos do jornal Folha de
+S. Paulo e compilado pelo centro de pesquisa NILC/São Carlos,
+Brasil.
+
+O CETENFolha vem sendo complementado com textos recentes de outros
+jornais. Isso vem sendo feito através de um processo totalmente
+automatizado de formatação e coleta diária de jornais disponíveis na
+Internet (``crawling''). Foi então construído o \emph{corpus} de
+texto: \emph{LaPSNews}. Na sua primeira versão usada
+em~\cite{sbrt09,propor10}, possuía cerca de 120 mil sentenças. Hoje,
+contém mais de 1 milhão de sentenças.
+
+\subsection{LaPSAPI}
+
+A LaPSAPI permite o controle em tempo-real do \emph{engine} de
+reconhecimento de voz, Julius, e da interface de áudio do sistema.
+Como pode ser visto na Figura~\ref{fig:apimodel}, as aplicações
+interagem com o reconhecedor Julius através da API.
+
+\begin{figure}[!h]
+   \centering
+   \includegraphics[height=2.5in]{APImodel}
+   \caption{Modelo de interação com a API.} \label{fig:apimodel}
+\end{figure}
+
+Visto que a API suporta objetos compatíveis com o modelo de
+automação \emph{component object model} (COM), é possível acessar e
+manipular (i.e. ajustar propriedades, invocar métodos) objetos de
+automação compartilhados que são exportados por outras aplicações.
+Do ponto de vista da programação, a API consiste de uma classe
+principal denominada \textit{SREngine}. Essa classe expõe à
+aplicação um conjunto de métodos e eventos descritos na
+Tabela~\ref{tab:apimethods}.
+
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{ l | l}
+  \toprule
+  \textbf{Métodos/Eventos} & \textbf{Descrição Básica} \\ \midrule
+  SREngine & Método para carregar e inicializar o reconhecedor \\ \midrule
+  loadGrammar & Método para carregar gramática SAPI XML\\ \midrule
+  addGrammar & Método para carregar gramática nativa do Julius\\ \midrule
+  startRecognition & Método para iniciar o reconhecimento \\ \midrule
+  stopRecognition & Método para pausar/parar o reconhecimento \\ \midrule
+  OnRecognition & Evento chamado quando alguma sentença é reconhecida \\ \midrule
+  OnSpeechReady & Evento chamado quando o reconhecimento é ativado \\
+  \bottomrule
+\end{tabular}
+\end{center}
+\caption{Principais métodos e eventos da API.}
+\label{tab:apimethods}
+\end{table}
+
+A classe \textit{SREngine} permite que a aplicação
+controle aspectos do reconhecedor Julius. Essa classe possibilita
+que a aplicação carregue os modelos acústico e de linguagem a serem
+utilizados, inicie e pare o reconhecimento, e receba eventos e
+resultados provenientes do \textit{engine} de reconhecimento.
+
+Uma aplicação baseada em voz precisa criar, carregar e ativar uma
+gramática, que essencialmente indica o método de reconhecimento
+empregado, ou seja, ditado ou livre de contexto. A gramática para
+ditado é implementada via modelo de linguagem, que define um extenso
+conjunto de palavras. Por sua vez, essas palavras podem ser
+pronunciadas de uma forma relativamente irrestrita. Já a gramática
+livre de contexto age como um modelo de linguagem. Ela provê ao
+reconhecedor regras que definem o que pode ser dito.
+
+Através do método \emph{loadGrammar} é possível carregar uma
+gramática livre de contexto especificada no formato Microsoft Speech
+API (SAPI) XML. Para tornar isso possível, um conversor gramatical
+foi desenvolvido e integrado ao método \emph{loadGrammar}. Essa
+ferramenta permite que o sistema converta automaticamente uma
+gramática de reconhecimento especificada no padrão SAPI \emph{Text
+Grammar Format}~\cite{sapixml} para o formato suportado pelo
+Julius\footnote{O decodificador Julius suporta tanto modelos de
+linguagem, como gramáticas livre de contexto.}. O procedimento de
+conversão usa as regras gramaticais SAPI para encontrar as conexões
+permitidas entre as palavras, usando o nome das categorias como nós
+terminais. Isso também define as palavras candidatas em cada
+categoria, juntamente com as suas respectivas pronúncias.
+
+É importante salientar que o conversor ainda não suporta regras
+gramaticais recursivas, facilidade suportada pelo Julius. Para esse
+tipo de funcionalidade deve-se carregar a gramática nativa do Julius
+através do método \emph{addGrammar}.
+A especificação para esse tipo de gramática pode ser encontrada em~\cite{juliusgrammar}.
+
+O método \textit{startRecognition}, responsável por iniciar o
+processo de reconhecimento, basicamente ativa as regras gramaticais
+e abre o \textit{stream} de áudio. Similarmente, o método
+\textit{stopRecognition} desativa as regras e fecha o
+\textit{stream} de áudio.
+
+Adicionalmente aos métodos, alguns eventos também foram
+implementados. O evento \textit{OnSpeechReady} sinaliza que o
+\textit{engine} está ativado para reconhecimento. Em outras
+palavras, ele surge toda vez que o método \textit{startRecognition}
+é invocado. Já o evento \textit{OnRecognition} acontece sempre que
+o resultado do reconhecimento encontra-se disponível, juntamente com
+o seu nível de confiança.
+
+A medida de confiança do que foi reconhecido pelo \textit{engine} é
+essencial para aplicações reais, dado que sempre ocorrerá erros de
+reconhecimento e, portanto, os resultados podem ser aceitos ou
+rejeitados. A sequência de palavras reconhecidas e o seu nível de
+confiança são passados da API para a aplicação através da classe
+\textit{RecoResult}.
+
+Esta API juntamente com os modelos produzidos a partir dos corpus citados
+nas seções ~\ref{sec:story},~\ref{sec:const} e~\ref{sec:lapsnews} formam
+o pacote Coruja que foi publicado como: \textit{An Open-Source Speech
+Recognizer for Brazilian Portuguese with a Windows Programming
+Interface}~\cite{propor10}.
+
+\subsection{PPTController}
+
+Para entender o funcionamento da SAPI, foi desenvolvido um
+\emph{software} onde é possível controlar uma apresentação de
+\textit{slides} do programa \textit{Microsoft Office Power Point
+2007} usando apenas comandos de voz. Foi utilizado o reconhecedor de
+voz para PB da \emph{Microsoft}: \textit{Speech Recognition Sample
+Engine for Portuguese (Brazil)}.
+
+%%%%%%%%%%%%%%Colocar uma figura com a tela principal do aplicativo
+\begin{figure}[!h]
+   \centering
+   \includegraphics[height=2.5in]{ppt_controller}
+   \caption{Tela inicial do aplicativo PPTController} \label{fig:pptcontroller}
+\end{figure}
+
+A Figura~\ref{fig:pptcontroller} mostra a tela principal do
+aplicativo. Seu funcionamento é bastante simples. Inicialmente é
+necessário abrir uma apresentação de \emph{slides}, sendo então
+possível habilitar o reconhecedor para receber os comandos de voz. O
+comando inicial deve ser \textbf{mostrar} para iniciar a
+apresentação. Em seguida pode-se comandar a apresentação através de
+comandos específicos. São eles:
+
+\begin{itemize}
+ \item \textbf{Mostrar:} primeiro comando que deve ser enviado, pois abre o \textit{slide show}.
+ \item \textbf{Próximo ou Avançar:} ir para o próximo \textit{slide} da apresentação.
+ \item \textbf{Anterior ou Voltar:} voltar para o \textit{slide} anterior na apresentação.
+ \item \textbf{Primeiro:} ir imediatamente para o primeiro \textit{slide} da apresentação.
+ \item \textbf{Último:} ir imediatamente para o último \textit{slide} da apresentação.
+ \item \textbf{Fechar:} fechar a apresentação e voltar para a tela principal do aplicativo.
+\end{itemize}
+
+Para comprovar também o funcionamento da LaPSAPI e dos modelos
+desenvolvidos, o aplicativo PPTController foi migrado para utilização do Coruja
+e obtivemos resultado satisfatório.
 \newpage
 
 \section{Cronograma de execução}
@@ -231,6 +457,51 @@ o Julius (linguagem C) e desenvolver métodos a serem utilizados em CLR.
 \end{table}
 
 \bibliographystyle{plain}
-\bibliography{bibliografia}
+\bibliography{bibliografia,bib}
+
+
+\comment{
+\newpage
+\begin{center}
+	\textbf{
+	\huge
+	ANEXO 2}
+\end{center}
+
+\section{Formulário de Avaliação de Trabalho de Conclusão de Curso I}
+
+\subsection{Considerações gerais sobre o trabalho}
+
+\subsection{Quanto à revisão bibliográfica realizada}
+\begin{itemize}
+	\item Atualidade e pertinência das referências
+	\item Levantamento do estado-da-arte da área alvo
+	\item Abrangência e profundidade da revisão bibliográfica.
+\end{itemize}
+
+\subsection{Quanto à constituição e confecção do trabalho}
+\begin{itemize}
+	\item Seqüência lógica da estruturação do trabalho
+\end{itemize}
+
+\subsection{Quanto à contribuição do trabalho}
+\begin{itemize}
+	\item Clareza nos objetivos do trabalho
+	\item Obtenção dos resultados esperados
+	\item Relevância da contribuição
+	\item Pertinência da implementação
+	\item Fidelidade da solução à idéia proposta
+\end{itemize}
+
+\subsection{Quanto ao desempenho do aluno}
+
+\subsection{Avaliação final conclusiva}
+\begin{itemize}
+	\item a) qual a nota e conceito do aluno na disciplina TCC I?
+	\item b) solicita que o aluno seja matriculado em TCC II sob sua orientação, para
+concluir o trabalho avaliado nesse documento? (SIM / NÃO / caso haja
+mudanças, informar em separado)
+\end{itemize}
+}
 
 \end{document}
