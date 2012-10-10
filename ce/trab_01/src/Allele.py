@@ -7,9 +7,21 @@ import re
 class AlleleTypeError(Exception):
 	pass
 
+class AlleleType:
+	def __init__(self):
+		pass
+
+	def random_allele(self):
+		raise NotImplementedError()
+
+	def valid_value(self, allele):
+		raise NotImplementedError()
+
 class Allele:
 	def __init__(self, allele_type, value=None):
 		self.allele_type = allele_type
+		if value is None:
+			value = self.allele_type.random_allele()
 		if self.allele_type.valid_value(value):
 			self.value = value
 		else:
@@ -28,24 +40,14 @@ class Allele:
 	def cross_over(self, other):
 		raise NotImplementedError()
 
-class AlleleType:
-	def __init__(self):
-		pass
-
-	def random_allele(self):
-		raise NotImplementedError()
-
-	def valid_value(self, allele):
-		raise NotImplementedError()
-
 class BinaryAlleleType(AlleleType):
 	def __init__(self, num_bits):
 		self.num_bits = num_bits
 		self.maximum = int('1' * self.num_bits, 2)
 		AlleleType.__init__(self)
 
-	def random_allele():
-		return random.getrandombits(self.num_bits)
+	def random_allele(self):
+		return random.getrandbits(self.num_bits)
 
 	def valid_value(self, allele):
 		if not (isinstance(allele, int) or isinstance(allele, long)):
@@ -59,11 +61,11 @@ class BinaryAllele(Allele):
 			raise AlleleTypeError("The number of bits or an BinaryAlleleType " +
 					"instance must be supplied")
 		if binary_allele_type is None:
-			binary_allele_type = BinaryAlleleType(num_bits)
+			allele_type = BinaryAlleleType(num_bits)
 		if isinstance(value, str):
 			value = int(value, 2)
 
-		Allele.__init__(self, binary_allele_type, value)
+		Allele.__init__(self, allele_type, value)
 
 	def cross_over(self, other):
 		"""One point cross_over"""
@@ -71,12 +73,12 @@ class BinaryAllele(Allele):
 		other_str = other_str.binary_str()
 
 		point = random.randint(0, self.num_bits)
-		return BinaryAllele(binary_allele_type=self.binary_allele_type,
-				self_str[:point] + other_str[point:])
+		return BinaryAllele(allele_type=self.allele_type,
+				value=self_str[:point] + other_str[point:])
 
 	def binary_str(self):
 		self_str = bin(self.value)[2:]
 		#Insert zeros to complement the binary string
-		return ('0' * self.binary_allele_type.num_bits - len(self_str) \
-				if len(self_str) < self.binary_allele_type.num_bits else '') +\
+		return ('0' * (self.allele_type.num_bits - len(self_str)) \
+				if len(self_str) < self.allele_type.num_bits else '') +\
 				self_str
