@@ -8,20 +8,24 @@ class Gene:
 		self.allele = allele
 
 	def mutate(self):
-		"""mutate the gene in-place"""
-		raise NotImplementedError()
+		"""mutate the gene in-place
+		change allele to a random one"""
+		self.allele.value = self.allele.allele_type.random_allele()
 
-	def cross_over(self, other):
-		"""coross_over self and gene and return the generated gene"""
-		raise NotImplementedError()
+	@property
+	def value(self):
+		return self.allele.value
+
+	@value.setter
+	def value(self, value):
+		self.allele.value = value
+
+	def __str__(self):
+		return str(self.value)
 
 class RealGene(Gene):
 	def __init__(self, allele):
 		Gene.__init__(self, allele)
-
-	def mutate(self):
-		"""change allele to a random one"""
-		self.allele.value = self.allele.allele_type.random_allele()
 
 	def cross_over(self, other):
 		return RealGene(self.allele.cross_over(other.allele))

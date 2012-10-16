@@ -4,7 +4,7 @@
 import random
 import re
 
-from Chromossome import Trab1Chromossome
+from Chromossome import Trab1Chromossome, Trab1BinaryChromossome
 
 class Population(object):
 	def __init__(self, chromossomes):
@@ -40,8 +40,9 @@ class Population(object):
 	def best_chromossome(self):
 		return self.chromossomes[-1]
 
+	@property
 	def best_score(self):
-		return self.best_chromossome().score
+		return self.best_chromossome.score
 
 	def __str__(self):
 		s = ""
@@ -62,7 +63,7 @@ class F6Population(Population):
 			Population.__init__(self, chromossomes)
 		else:
 			Population.__init__(self,
-					[Trab1Chromossome(25, 25, max_value=100, min_value=-100) for i in xrange(pop_size)])
+					[Trab1BinaryChromossome(-100, 100, 21, 25) for i in xrange(pop_size)])
 		self.chromossomes = sorted(self.chromossomes)
 
 	def select(self):
@@ -78,21 +79,24 @@ class F6Population(Population):
 			if acc > number:
 				return self.chromossomes[idx]
 
-	def new_population(self, mutate_prob, size=None):
-		size = size or len(self) - 1
+	def new_population(self, mutate_prob, cross_prob, size=None):
+		size = size or len(self)# - 1
 		offsprint = []
 
 		while True:
-			if len(offsprint) >= len(self):
+			if len(offsprint) >= size:
 				break
 			else:
-				offsprint.extend(self.select().cross_over(self.select()))
+				offsprint.extend(self.select().cross_over(self.select(),
+					mutate_prob,
+					cross_prob))
 
-		if len(offsprint) > len(self):
+		if len(offsprint) > size:
 			offsprint = sorted(offsprint)[:len(self)]
 
-		[c.mutate(mutate_prob) for c in offsprint]
-		offsprint.append(self.best_chromossome)
+		#[c.mutate(mutate_prob) for c in offsprint]
+		#offsprint.append(self.best_chromossome)
+		#print len(offsprint)
 
 		return F6Population(offsprint)
 

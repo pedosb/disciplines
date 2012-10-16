@@ -25,27 +25,51 @@ from scipy.ndimage import imread as imread
 from matplotlib import pyplot as plt
 
 BLOCK_LEN = 8
+NUM_COEF = 8
 
 def encode(file_name):
 	image = imread(file_name)
+#	image = np.array([[3, 4], [8, 2]])
+	image = image[:32,:32]
 
 	dct_coeff = np.zeros(image.shape)
+	new_image = np.zeros(image.shape)
 
 	for i_shift in xrange(image.shape[0] / BLOCK_LEN):
 		print i_shift
 		for j_shift in xrange(image.shape[1] / BLOCK_LEN):
 			i = i_shift * BLOCK_LEN
 			j = j_shift * BLOCK_LEN
-			block = image[i:i+BLOCK_LEN, j:j+BLOCK_LEN]
-			for k1 in xrange(BLOCK_LEN):
-				for k2 in xrange(BLOCK_LEN):
+#			block = image[i:i+BLOCK_LEN, j:j+BLOCK_LEN]
+			alfa = lambda x: np.sqrt(1./BLOCK_LEN) if x == 0 else np.sqrt(2./BLOCK_LEN)
+			for k1 in xrange(NUM_COEF):
+				for k2 in xrange(NUM_COEF):
 					for n1 in xrange(BLOCK_LEN):
 						for n2 in xrange(BLOCK_LEN):
-							dct_coeff[i+k1:i+BLOCK_LEN+k1, j+k2:j+k2+BLOCK_LEN] += \
-									np.cos(np.pi/BLOCK_LEN * (n1 + 0.5) * k1) *\
-									np.cos(np.pi/BLOCK_LEN * (n2 + 0.5) * k2) *\
-									block[n1, n2]
-
-	plt.imshow(dct_coeff)
+							dct_coeff[i+k1, j+k2] += \
+									np.cos(np.pi/BLOCK_LEN * (n1 + .5) * k1) *\
+									np.cos(np.pi/BLOCK_LEN * (n2 + .5) * k2) *\
+									image[i+n1, j+n2]
+					dct_coeff[i+k1, j+k2] *= alfa(k1) * alfa(k2)
+			for n1 in xrange(BLOCK_LEN):
+				for n2 in xrange(BLOCK_LEN):
+					new_idx = i+n1, j+n2
+					for k1 in xrange(BLOCK_LEN):
+						for k2 in xrange(BLOCK_LEN):
+							new_image[new_idx] += \
+									np.cos(np.pi/BLOCK_LEN * (n1 + .5) * k1) *\
+									np.cos(np.pi/BLOCK_LEN * (n2 + .5) * k2) *\
+									dct_coeff[i+k1, j+k2] *\
+									alfa(k1) * alfa(k2)
+	new_image = new_image.astype(int)
+#	print "block\n", image
+#	print "dct\n", dct_coeff
+#	print "new_image\n", new_image
+	print image - new_image
+#	break
+	plt.imshow(new_image)
+	plt.figure()
+	plt.imshow(image)
+	plt.show()
 
 encode(sys.argv[1])

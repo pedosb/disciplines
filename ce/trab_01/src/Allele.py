@@ -41,6 +41,17 @@ class Allele:
 		raise NotImplementedError()
 
 class BinaryAlleleType(AlleleType):
+	def random_allele(self):
+		return random.choice((0, 1))
+
+	def valid_value(self, allele):
+		return allele in [0, 1]
+
+class BinaryAllele(Allele):
+	def __init__(self, value=None):
+		Allele.__init__(self, BinaryAlleleType(), value)
+
+class BinaryListAlleleType(AlleleType):
 	def __init__(self, num_bits):
 		self.num_bits = num_bits
 		self.maximum = int('1' * self.num_bits, 2)
@@ -54,14 +65,14 @@ class BinaryAlleleType(AlleleType):
 			return False
 		return allele <= self.maximum and allele >= 0
 
-class BinaryAllele(Allele):
+class BinaryListAllele(Allele):
 	def __init__(self, num_bits=None, binary_allele_type=None, value=None):
 		if (num_bits is None and
-				not isinstance(binary_allele_type, BinaryAlleleType)):
-			raise AlleleTypeError("The number of bits or an BinaryAlleleType " +
+				not isinstance(binary_allele_type, BinaryListAlleleType)):
+			raise AlleleTypeError("The number of bits or an BinaryListAlleleType " +
 					"instance must be supplied")
 		if binary_allele_type is None:
-			allele_type = BinaryAlleleType(num_bits)
+			allele_type = BinaryListAlleleType(num_bits)
 		if isinstance(value, str):
 			value = int(value, 2)
 
@@ -73,7 +84,7 @@ class BinaryAllele(Allele):
 		other_str = other_str.binary_str()
 
 		point = random.randint(0, self.num_bits)
-		return BinaryAllele(allele_type=self.allele_type,
+		return BinaryListAllele(allele_type=self.allele_type,
 				value=self_str[:point] + other_str[point:])
 
 	def binary_str(self):
