@@ -25,8 +25,7 @@ db.define_table('population',
 		Field('experiment', db.experiment),
 		Field('generation', 'integer'),
 		Field('chromossomes', 'list:reference chromossome'),
-		Field('max_score', compute=
-			lambda r: max([c.score for c in r.chromossomes])),
+		Field('max_score', 'float'),
 		Field('min_score', compute=
 			lambda r: min([c.score for c in r.chromossomes])),
 		Field('mean', compute=
@@ -40,33 +39,19 @@ if __name__=='__main__':
 	p = F6Population(pop_size=50)
 
 	mutate_prob = 0.05
-	cross_prob = 0.7
+	cross_prob = 0.9
 
 	experiment = db.experiment.insert(task='F6Binary', mutate_prob=mutate_prob,
 			cross_prob=cross_prob)
 	db.commit()
 
 	for i in xrange(500):
-		#print p
+		print p
 		crs_id = []
-		for c in p.chromossomes:
-			if i > 0:
-				crs_id.append(db.chromossome.insert(score=c.score,
-					bits=c.bit_str(),
-					x=c.x,
-					y=c.y
-					))
-			else:
-				crs_id.append(db.chromossome.insert(score=c.score,
-					bits=c.bit_str(),
-					x=c.x,
-					y=c.y
-					))
-				c.db_id = crs_id[-1]
-
 		db.population.insert(experiment=experiment,
 				generation=i,
-				chromossomes=crs_id)
+				max_score=p.best_score)
+		print p.best_score
 		db.commit()
 
 		p = p.new_population(mutate_prob, cross_prob)
