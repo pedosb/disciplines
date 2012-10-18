@@ -87,7 +87,15 @@ class F6Population(Population):
 			if len(offsprint) >= size:
 				break
 			else:
-				offsprint.extend(self.select().cross_over(self.select(),
+				father = self.select()
+				father.best = False
+				if father == self.best_chromossome:
+					father.best = True
+				mother = self.select()
+				mother.best = False
+				if mother == self.best_chromossome:
+					mother.best = True
+				offsprint.extend(father.cross_over(mother,
 					mutate_prob,
 					cross_prob))
 

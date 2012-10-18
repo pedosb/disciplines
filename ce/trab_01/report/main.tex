@@ -1,6 +1,9 @@
 \documentclass[a4paper]{article}
 
 \usepackage[latin1]{inputenc}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage[portuguese]{babel}
 
 \author{Pedro Batista}
 
@@ -11,5 +14,104 @@
 \begin{document}
 \maketitle
 
+\section{Definição do Problema}
+
+Para a função F6~\ref{eq:f6} deve ser implementado o algoritmo genético proposto
+em sala de aula. Dadas as seguintes especificações:
+
+\begin{itemize}
+	\item Busca por $-100 \le x \le 100$ e $-100 \le y \le 100$.
+	\item A precisão de $x$ deve ser de pelo menos 4 casas decimais.
+	\item A precisão de $y$ deve ser de pelo menos 5 casas decimais.
+	\item População de 50 cromossomos.
+	\item Máximo de 500 gerações.
+	\item Representação binária.
+	\item Taxa de cruzamento de 70\%.
+	\item Taxa de mutação de 5\%.
+	\item Seleção por roleta.
+	\item Cruzamento de um ponto.
+\end{itemize}
+
+\begin{equation}
+	\arg_{x,y \in \mathbb{R}}\max f(x,y) = 0.5 -
+	\frac{\sin{\sqrt{x^2+y^2}}-0.5}{\left[1+0.001(x^2+y^2)\right]^2}
+	\label{eq:f6}
+\end{equation}
+
+\section{Modelagem}
+
+\subsection{Representação de $x$ e $y$}
+
+Como mostrado em sala para representar um número de -100 a 100 usando 4 casas
+decimais precisamos $k_i$ bits para que a equação $2^k_i \ge 100-(-100)*10^4$
+seja atendida, dessa forma foram usados 21 bits para representar a variável $x$.
+Já para a variável $y$ com o mesmo procedimento precisamos de 25 bits.
+
+\subsection{O Cromossomo}
+
+O cromossomo utilizado nesse trabalho contém 46 alelos, onde cada alelo é o bit 0
+ou 1. Sendo os 21 primeiros alelos representantes da variável $x$ e os 25
+restantes da variável $y$.
+
+\subsection{Seleção}
+
+A seleção utilizada foi a roleta, ponderada pelo valor da função~\ref{eq:f6}
+(aqui chamado score).
+
+Primeiramente o score de cada cromossomo foi normalizado $new\_score_i =
+\frac{score_i}{\sum_j{score_j}}$. Um número aleatório $n$ entre $0$ e $1$ foi
+então selecionado e o seguinte teste foi efetuado em ordem crescente (em
+relação ao score) para cada um dos $i$ cromossomos $\sum_{j=0}^{j=i}{score_j}
+> n$, quando o teste é aceito o cromossomo $i$ é selecionado.
+
+\subsection{Mutação}
+
+Para cada alelo do cromossomo é decidido se ele vai multar ou não (com taxa de
+5\%). Caso seja decidido por mutação o bit daquele alelo é invertido. Isto é, se
+1 é substituído por 0, se 0 é substituído por 1.
+
+\subsection{Cruzamento}
+
+O cruzamento utilizado foi o cruzamento de um ponto. Para o cruzamento dois
+cromossomos são selecionados (pai e mãe), posteriormente é decidido se esses
+cromossomos vão cruzar (com probabilidade de 70\%). Caso seja optado por
+cruzamento um ponto aleatório $m$ entre $0$ e $46$ é selecionado. Os alelos até
+o ponto $m$ do pai são agrupados com os alelos a partir do ponto $m$ da mãe
+gerando um filho. Já os alelos até o ponto $m$ da mãe são agrupados com os
+alelos a partir do ponto $m$ do pai gerando uma filha. Filho e filha são então
+multados e utilizados na nova população. Caso não seja optado pelo cruzamento
+pai e mãe são copiados para a nova população.
+
+\section{Resultados}
+
+A seguir é mostrado o resultado de uma simulação utilizando o algoritmo
+implementado. 
+
+\subsection{Melhores Cromossomos}
+
+Observamos na Figura~\ref{fig:34} que o algoritmo não convergiu para o valor
+esperado (1). Acredita-se que isso se deve ao fato de uma alta taxa de mutação
+(5\%) que acaba afastando bons cromossomos na maioria das vezes. Isso pode ser
+comprovado no experimento mostrado na Figura~\ref{fig:33} onde a taxa de
+mutação foi reduzida para 2\%.
+
+\begin{figure}
+	\includegraphics[scale=0.5]{score_exp_34}
+	\caption{Melhor cromossomo por geração.}
+	\label{fig:34}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[scale=0.5]{score_exp_33}
+	\caption{Melhor cromossomo por geração usando taxa de cruzamento de 2\%
+	(diferente da especificação do trabalho).}
+	\label{fig:33}
+\end{figure}
+
+\subsection{Tabela de Cromossomos a Cada 50 Gerações}
+
+A seguir é mostrada a tabela da população de 50 em 50 gerações.
+
+\input{table.tex}
 
 \end{document}

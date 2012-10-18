@@ -47,7 +47,6 @@ if __name__=='__main__':
 	db.commit()
 
 	for i in xrange(500):
-		#print p
 		crs_id = []
 		for c in p.chromossomes:
 			if i > 0:
@@ -67,8 +66,11 @@ if __name__=='__main__':
 		db.population.insert(experiment=experiment,
 				generation=i,
 				chromossomes=crs_id)
-		db.commit()
-
+		if not i % 50:
+			db.commit()
 		p = p.new_population(mutate_prob, cross_prob)
+		print p.best_score
+		print
+	db.commit()
 
 	db.close()

@@ -115,7 +115,7 @@ class Trab1BinaryChromossome(F6Func, Chromossome):
 
 		Chromossome.__init__(self, genes)
 
-	def mutate(self, mutate_prob):
+	def mutatea(self, mutate_prob):
 		if flip_coin(mutate_prob):
 			self.genes[:self.num_bits_x] = [Gene(BinaryAllele(int(i)))
 					for i in
@@ -154,8 +154,8 @@ class Trab1BinaryChromossome(F6Func, Chromossome):
 
 		cross = flip_coin(cross_prob)
 
-		#point = random.randint(0, len(self.genes)) if cross else 0
-		point = self.num_bits_x if cross else 0
+		point = random.randint(0, len(self.genes)) if cross else 0
+		#point = self.num_bits_x if cross else 0
 
 		son = Trab1BinaryChromossome(self.min_v, self.max_v, self.num_bits_x,
 				self.num_bits_y, genes=self_genes[:point] + other_genes[point:])
@@ -171,6 +171,14 @@ class Trab1BinaryChromossome(F6Func, Chromossome):
 		if cross:
 			son.mutate(mutate_prob)
 			daughter.mutate(mutate_prob)
+
+		if not cross:
+			if self.best:
+				print self.score
+			elif other.best:
+				print other.score
+			else:
+				print "pass"
 
 		return son, daughter
 

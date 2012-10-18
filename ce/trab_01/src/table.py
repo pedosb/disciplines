@@ -10,7 +10,7 @@ if __name__=='__main__':
 
 	out = sys.stdout
 
-	exp = 102
+	exp = 34
 	pops = db(db.population.experiment==exp)\
 			.select(orderby=db.population.generation)
 
@@ -23,14 +23,14 @@ if __name__=='__main__':
 		mi[idx] = pop.min_score
 		me[idx] = pop.mean
 		st[idx] = pop.std
-		if not idx % 50:
+		if (not idx % 50) or idx == 499:
 			out.write("""
 					\\begin{table}
-					\\begin{tabular}{|l|l|l|l|}
-					Representaç~ao Bin´aria & x & y & score \\\\\hline\n
+					\\footnotesize
+					\\begin{tabular}{|l|l|l|l|}\hline
+					Representação Binária & x & y & score \\\\\hline\n
 					""")
 			for c in pop.chromossomes:
-				print c.x
 				out.write('%s & %.6f & %.6f & %.6f\\\\\hline\n' % (
 					c.bits,
 					c.x,
@@ -38,6 +38,6 @@ if __name__=='__main__':
 					c.score))
 			out.write(r"""
 					\end{tabular}
-					\label{Tabela da populaço %d}
+					\caption{Tabela da população %d}
 					\end{table}
 					""" % idx)

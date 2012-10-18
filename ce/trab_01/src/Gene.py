@@ -10,7 +10,7 @@ class Gene:
 	def mutate(self):
 		"""mutate the gene in-place
 		change allele to a random one"""
-		self.allele.value = self.allele.allele_type.random_allele()
+		self.allele.value = 0 if self.allele.value else 1
 
 	@property
 	def value(self):
