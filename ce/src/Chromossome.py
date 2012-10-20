@@ -109,7 +109,8 @@ class Trab1BinaryChromossome(F6Func, Chromossome):
 
 	def mutate(self, mutate_prob):
 		for idx, value in enumerate(self.alleles):
-			self.alleles[idx] = '0' if value == '1' else '1'
+			if flip_coin(mutate_prob):
+				self.alleles[idx] = '0' if value == '1' else '1'
 
 	@property
 	def x(self):
