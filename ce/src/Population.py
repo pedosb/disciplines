@@ -4,7 +4,7 @@
 import random
 import re
 
-from Chromossome import Trab1Chromossome, Trab1BinaryChromossome
+from Chromossome import Trab1BinaryChromossome
 
 class Population(object):
 	def __init__(self, chromossomes):
@@ -64,7 +64,6 @@ class F6Population(Population):
 		else:
 			Population.__init__(self,
 					[Trab1BinaryChromossome(-100, 100, 21, 25) for i in xrange(pop_size)])
-		self.chromossomes = sorted(self.chromossomes)
 
 	def select(self):
 		"""Roullet wheel selection"""
@@ -80,7 +79,7 @@ class F6Population(Population):
 				return self.chromossomes[idx]
 
 	def new_population(self, mutate_prob, cross_prob, size=None):
-		size = size or len(self)# - 1
+		size = size or len(self)
 		offsprint = []
 
 		while True:
@@ -88,23 +87,14 @@ class F6Population(Population):
 				break
 			else:
 				father = self.select()
-				father.best = False
-				if father == self.best_chromossome:
-					father.best = True
 				mother = self.select()
-				mother.best = False
-				if mother == self.best_chromossome:
-					mother.best = True
-				offsprint.extend(father.cross_over(mother,
+				offsprint.extend(father.cross_over(
+					mother,
 					mutate_prob,
 					cross_prob))
 
 		if len(offsprint) > size:
-			offsprint = sorted(offsprint)[:len(self)]
-
-		#[c.mutate(mutate_prob) for c in offsprint]
-		#offsprint.append(self.best_chromossome)
-		#print len(offsprint)
+			offsprint = offsprint[:len(self)]
 
 		return F6Population(offsprint)
 

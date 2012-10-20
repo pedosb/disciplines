@@ -5,7 +5,7 @@ from scipy import std, mean
 
 from dal import *
 
-db = DAL('sqlite://evolution.db')
+db = DAL('sqlite://evolution.db', folder='databases')
 
 db.define_table('experiment',
 		Field('task'),
@@ -39,7 +39,7 @@ if __name__=='__main__':
 	from Population import F6Population
 	p = F6Population(pop_size=50)
 
-	mutate_prob = 0.05
+	mutate_prob = 0.3
 	cross_prob = 0.7
 
 	experiment = db.experiment.insert(task='F6Binary', mutate_prob=mutate_prob,
@@ -49,19 +49,12 @@ if __name__=='__main__':
 	for i in xrange(500):
 		crs_id = []
 		for c in p.chromossomes:
-			if i > 0:
-				crs_id.append(db.chromossome.insert(score=c.score,
-					bits=c.bit_str(),
-					x=c.x,
-					y=c.y
-					))
-			else:
-				crs_id.append(db.chromossome.insert(score=c.score,
-					bits=c.bit_str(),
-					x=c.x,
-					y=c.y
-					))
-				c.db_id = crs_id[-1]
+			crs_id.append(db.chromossome.insert(score=c.score,
+				bits=c.bit_str(),
+				x=c.x,
+				y=c.y
+				))
+			c.db_id = crs_id[-1]
 
 		db.population.insert(experiment=experiment,
 				generation=i,
@@ -69,8 +62,8 @@ if __name__=='__main__':
 		if not i % 50:
 			db.commit()
 		p = p.new_population(mutate_prob, cross_prob)
-		print p.best_score
-		print
+
+	print p
 	db.commit()
 
 	db.close()
