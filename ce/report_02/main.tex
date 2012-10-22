@@ -1,0 +1,125 @@
+\documentclass[a4paper]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage[portuguese]{babel}
+
+\author{Pedro Batista}
+
+\title{Experiência 02 - Algoritmo Genético com Normalização e Janelamento para a
+Função F6 Elevada}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Definição do Problema}
+
+Para a função F6 (Eq.~\ref{eq:f6}) elevada a 999 (Eq.~\ref{eq:f6e}), deve ser
+implementado um algoritmo genético (GA) com normalização linear e janelamento. Para
+esse trabalho as seguintes especificações foram utilizadas:
+
+\begin{itemize}
+	\item Busca por $-100 \le x \le 100$ e $-100 \le y \le 100$.
+	\item Precisão de $x$ de pelo menos 4 casas decimais (21 bits).
+	\item Precisão de $y$ de pelo menos 5 casas decimais (25 bits).
+	\item População de 50 cromossomos.
+	\item Máximo de 500 gerações.
+	\item Representação binária.
+	\item Taxa de cruzamento de 70\%.
+	\item Taxa de mutação de 2\%.
+	\item Seleção por roleta.
+	\item Cruzamento de um ponto.
+\end{itemize}
+
+\begin{equation}
+		\arg_{x,y \in \mathbb{R}}\max f(x,y) \to f(x,y) =
+			0.5 - \frac{\sin{\sqrt{x^2+y^2}}-0.5}
+				{\left[1+0.001(x^2+y^2)\right]^2}
+	\label{eq:f6}
+\end{equation}
+
+\begin{equation}
+	\arg_{x,y \in \mathbb{R}}\max fe(x,y) \to
+		fe(x,y) = f(x,y) + 999
+	\label{eq:f6e}
+\end{equation}
+
+\subsection{A Seleção}
+
+A elevação da função F6 diminui a diferença relativa entre os cromossomos, isso
+significa que ao selecioná-los pelo método da roleta eles terão probabilidades
+muito parecidas e não será trivial a seleção entre o melhor é o pior
+individuo. Para visualizar melhor essa situação será descrito a seguir um
+exemplo.
+
+Supondo que em uma determinada população da função F6 existem três cromossomos
+$a$, $b$ e $c$ com scores $0.8$, $0.5$ e $0.9$ respectivamente. A probabilidade
+de cada um deles ser selecionado é:
+
+\[
+\begin{array}{lcl}
+	P_a & = & \displaystyle\frac{a}{a + b + c} = \frac{0.8}{2.2} =
+		0.3635\\[10pt]
+	P_b & = & \displaystyle\frac{b}{a + b + c} = \frac{0.5}{2.2} =
+		0.2273\\[10pt]
+	P_c & = & \displaystyle\frac{c}{a + b + c} = \frac{0.9}{2.2} = 0.4091
+\end{array}
+\]
+
+Como podemos observar o individuo $c$ tem mais chances de ser selecionado por
+ter o maior score. O que é obviamente desejado para um GA. Isso não é observado
+quando a função F6 é elevada a $999$ como observamos a seguir. Os novos scores
+de $a$, $b$ e $c$ são $999.8$, $999.5$ e $999.9$ respectivamente, levando a uma
+nova probabilidade de seleção dada por:
+
+\[
+\begin{array}{lcl}
+	P_a & = & \displaystyle\frac{a}{a + b + c} = \frac{999.8}{2999.2} =
+		0.3333\\[10pt]
+	P_b & = & \displaystyle\frac{b}{a + b + c} = \frac{999.5}{2999.2} =
+		0.3332\\[10pt]
+	P_c & = & \displaystyle\frac{c}{a + b + c} = \frac{999.9}{2999.2} = 0.3334
+\end{array}
+\]
+
+Dessa forma não é trivial a seleção do melhor individuo, visto que a diferença
+na probabilidade de seleção entre eles é muito pequena, Já que a diferença
+relativa entre eles também é pequena.
+
+\section{Normalização}
+\section{Janelamento}
+
+\section{Modelagem}
+
+A modelagem geral do GA utilizada foi a mesma implementada na Experiência 01
+(Algoritmo Genético para a Função F6), as alterações para essa Experiência foram
+apenas no método de seleção e cálculo do score.
+
+\section{Metodologia}
+
+Neste trabalho serão realizados cinco experimentos descritos a seguir:
+\begin{description}
+	\item[AG para a função F6] Para mostrar o desempenho do AG na função F6 sem
+		elevação e comparar com o resultado para a F6 elevada a 999.
+	\item[AG para a função F6 elevada a 999] Para comparar com o resultado do AG
+		para a função F6 sem elevação e mostrar que o resultado para a função F6
+		elevada não é bom.
+	\item[AG com normalização para a função F6 elevada a 999] Para mostrar o
+		efeito da normalização sobre o AG para a função F6 elevada.
+	\item[AG com janelamento para a função F6 elevada a 999] Para mostrar o
+		efeito da normalização sobre o AG para a função F6 elevada.
+	\item[AG com normalização e janelamento para a função F6 elevada a 999] Para
+		mostrar o efeito da normalização e janelamento juntos sobre o AG para a
+		função F6.
+\end{description}
+
+Os resultados apresentados serão selecionados (visualmente) de uma série de
+testes com população inicial diferente (diferente seeds para o gerador de
+números aleatórios).
+
+\section{Resultados}
+
+\end{document}
