@@ -3,6 +3,7 @@
 
 import random
 import re
+random = random.Random(0)
 
 from scipy import tan
 
@@ -71,8 +72,16 @@ class F6Population(Population):
 		"""Roullet wheel selection"""
 		scores = [c.score for c in self.chromossomes]
 
+		if beta is not None:
+			if beta > max(scores):
+				raise ValueError("Negative score increase beta?")
+			for i in xrange(len(scores)):
+				scores[i] -= beta
+
 		if alpha is not None:
 			start = max(scores) - tan(alpha) * len(scores)
+			if start < 0:
+				raise ValueError("Negative score decrease alpha?")
 			for i in xrange(len(scores)):
 				scores[i] = start + alpha * i
 
