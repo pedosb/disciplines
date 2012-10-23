@@ -13,7 +13,8 @@ TARGET = $(MAIN).pdf
 DVI = $(MAIN).dvi
 
 SOURCE = $(MAIN).tex \
-		 makefile
+		 makefile \
+		 *.eps
 
 all : $(TARGET)
 

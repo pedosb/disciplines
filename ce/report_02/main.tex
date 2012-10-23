@@ -1,8 +1,11 @@
 \documentclass[a4paper]{article}
 
 \usepackage[latin1]{inputenc}
+%\usepackage[top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry}
 \usepackage{mathtools}
 \usepackage{amsfonts}
+\usepackage{epsfig}
+\usepackage{float}
 \usepackage[portuguese]{babel}
 
 \author{Pedro Batista}
@@ -90,7 +93,23 @@ na probabilidade de seleção entre eles é muito pequena, Já que a diferença
 relativa entre eles também é pequena.
 
 \section{Normalização}
+
+A normalização utilizada aqui é linear. Isso significa que a diferença entre os
+score dos cromossomos da população será igual, segundo a equação:
+$s_i = \min s + \alpha i$. Sendo que em alguns casos pode ser utilizado
+$\alpha=\frac{\max s - \min s}{n-1}$, onde $n$ é o tamanho da população.
+Porém nos casos em que $\max s$ é muito próximo de $\min s$ e a diferença
+relativa entre eles é pequena esse $\alpha$ não ajuda muito, já que a diferença
+relativa não será alterada. Dessa forma nesse trabalho $\alpha$ será atribuído
+manualmente a $3$, $15$ e $30$, representando pressão seletiva (diferença
+relativa entre os cromossomos da população) baixa, média e alta respectivamente.
+
 \section{Janelamento}
+
+A técnica do janelamento tenta também diminuir a diferença relativa entre os
+cromossomos da população. No janelamento uma constante $\beta$ é subtraída de
+todos os scores segundo a equação: $s'_i = s_i - \beta$, onde $s'$ é o novo
+score do cromossomo.
 
 \section{Modelagem}
 
@@ -102,17 +121,17 @@ apenas no método de seleção e cálculo do score.
 
 Neste trabalho serão realizados cinco experimentos descritos a seguir:
 \begin{description}
-	\item[AG para a função F6] Para mostrar o desempenho do AG na função F6 sem
+	\item[GA para a função F6] Para mostrar o desempenho do GA na função F6 sem
 		elevação e comparar com o resultado para a F6 elevada a 999.
-	\item[AG para a função F6 elevada a 999] Para comparar com o resultado do AG
+	\item[GA para a função F6 elevada a 999] Para comparar com o resultado do GA
 		para a função F6 sem elevação e mostrar que o resultado para a função F6
 		elevada não é bom.
-	\item[AG com normalização para a função F6 elevada a 999] Para mostrar o
-		efeito da normalização sobre o AG para a função F6 elevada.
-	\item[AG com janelamento para a função F6 elevada a 999] Para mostrar o
-		efeito da normalização sobre o AG para a função F6 elevada.
-	\item[AG com normalização e janelamento para a função F6 elevada a 999] Para
-		mostrar o efeito da normalização e janelamento juntos sobre o AG para a
+	\item[GA com normalização para a função F6 elevada a 999] Para mostrar o
+		efeito da normalização sobre o GA para a função F6 elevada.
+	\item[GA com janelamento para a função F6 elevada a 999] Para mostrar o
+		efeito da normalização sobre o GA para a função F6 elevada.
+	\item[GA com normalização e janelamento para a função F6 elevada a 999] Para
+		mostrar o efeito da normalização e janelamento juntos sobre o GA para a
 		função F6.
 \end{description}
 
@@ -121,5 +140,145 @@ testes com população inicial diferente (diferente seeds para o gerador de
 números aleatórios).
 
 \section{Resultados}
+
+\subsection{GA para a Função F6 e F6 Elevada}
+
+Como esperado o GA para as função F6 (Figura~\ref{fig:f6}) convergiu para um valor, e teve sua
+execução com um bom espaço de busca variando o mínimo e o máximo elemento e com
+vários aumentos no desvio padrão. Esse resultado não foi obtido quando a função
+F6 foi elevada a 999 (Figura~\ref{fig:f6e}), onde observamos um espaço de busca pequeno e uma variação
+não regulada, no máximo se tornando algo parecido com uma busca aleatória.
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6.}
+	\label{fig:f6}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6e.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999.}
+	\label{fig:f6e}
+\end{figure}
+
+\subsection{GA com Normalização para a Função F6 Elevada a 999}
+
+Com a normalização o GA apresentou melhores resultados comparado ao não
+normalizado, o que pode ser observado nas
+Figuras~\ref{fig:f6e_alpha3},~\ref{fig:f6e_alpha15}
+e~\ref{fig:f6e_alpha30} onde $\alpha$ é ajustado em 3, 15 e 30
+respectivamente.
+
+Podemos observar que ao aumentar $\alpha$ obtemos melhores resultados para esse
+problema. O que acontece é que como esperado a diferença relativa entre os
+cromossomos é aumentada aumentando as chances do melhor cromossomo ser
+selecionado e provavelmente formando mais filhos. Outra questão que foi
+observada é que o espaço de busca (visualizado pelo desvio padrão) foi aumentado
+ao se aumentar $\alpha$ gerando mais diversidade e melhorando o desempenho do
+GA.
+
+Uma curiosidade é que em um primeiro momento foi levado a crer que ao aumentar
+muito $\alpha$ o GA ficaria preso em um máximo local. O que não foi confirmado
+em simulações onde $\alpha=300$ (Figura~\ref{fig:f6e_alpha300}), acredita-se que
+isso se deve ao fato de que com $\alpha$ grande o melhor individuo tem muita
+chance de ser escolhido e quando esse é gerado por uma mutação ou cruzamento
+provavelmente vai ser conservado para a próxima população ou cruzará com outro
+gerando uma boa população. O interessante foi que com esse método foi a primeira
+vez que encontramos o resultado ótimo para essa representação, com o cromossomo:
+
+\begin{verbatim}
+Alelos: 1000000000000000000000111111111111111111111111
+X: 100000000000000000000 (0.000048)
+Y: 0111111111111111111111111 (-0.000003)
+Score: 999.99999999771512
+\end{verbatim}
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6_alpha3.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999 com normalização e $\alpha=3$.}
+	\label{fig:f6e_alpha3}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6_alpha15.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999 com normalização e $\alpha=15$.}
+	\label{fig:f6e_alpha15}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6_alpha30_2.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999 com normalização e $\alpha=30$.}
+	\label{fig:f6e_alpha30}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6_alpha300.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999 com normalização e $\alpha=300$.}
+	\label{fig:f6e_alpha300}
+\end{figure}
+
+\subsection{GA com Janelamento para a Função F6 Elevada a 999}
+
+Como esperado o Janelamento não influencia muito nos resultados a não ser que
+$\beta$ se aproxime de 999 pois se ele for muito menor que 999 a diferença
+relativa entre os elementos não será alterada significativamente. Os testes
+realizados são mostrados nas Figuras~\ref{fig:f6e_beta300}
+e~\ref{fig:f6e_beta800} para $\beta$ igual a 300 e 800 respectivamente.
+Confirmando que os resultados não são muito melhores. É sabido que para esse
+caso quando $\beta$ é igual a 999 o problema se iguala ao problema da função F6.
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6e_beta300.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999 com janelamento e $\beta=300$.}
+	\label{fig:f6e_beta300}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6e_beta800.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999 com janelamento e $\beta=800$.}
+	\label{fig:f6e_beta800}
+\end{figure}
+
+\subsection{GA com Janelamento e Normalização para a Função F6 elevada a 999}
+
+Um último experimento juntou janelamento e normalização onde o resultado mais
+interessante foi obtido com $\alpha=30$ e $\beta=800$. O resultado ótimo foi
+encontrado. O que aconteceu é que o janelamento facilitou o trabalho da
+normalização já que a diferença relativa entre os cromossomos ficou maior com um
+$\alpha$ menor. O desempenho do GA é mostrado na
+Figura~\ref{fig:f6e_beta800_alpha30}.
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_f6_alpha30_beta800.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6 elevada a 999 com janelamento ($\beta=800$) e
+	normalização ($\alpha=30$).}
+	\label{fig:f6e_beta800_alpha30}
+\end{figure}
+
+\section{Conclusão}
+
+O janelamento mostrou-se uma técnica que pode ser útil em alguns casos para
+diminuir a diferença relativa entre os cromossomos e melhorar a seleção. A
+normalização linear foi bastante eficiente para a seleção. Um bom teste pode ser
+o de uma normalização não linear como a função $-\log(\tanh(\frac{x}{2}))$ que aumenta bem as chances
+dos melhores invividos serem selecionados e diminui pouco a dos piores.
 
 \end{document}
