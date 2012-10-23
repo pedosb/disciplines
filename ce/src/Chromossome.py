@@ -63,7 +63,7 @@ class Trab1ChromossomeError(Exception):
 class F6Func(object):
 	def calc(self):
 		x2y2 = self.x**2 + self.y**2
-		return 0.5 - (sin(sqrt(x2y2))**2-0.5) / (1+0.001*(x2y2))**2
+		return 999.5 - (sin(sqrt(x2y2))**2-0.5) / (1+0.001*(x2y2))**2
 
 class Trab1BinaryChromossome(F6Func, Chromossome):
 	def __init__(self, min_x, max_x, num_bits_x, num_bits_y, min_y=None,

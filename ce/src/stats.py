@@ -10,7 +10,10 @@ db = DAL('sqlite://evolution.db', folder='databases')
 db.define_table('experiment',
 		Field('task'),
 		Field('mutate_prob', 'float'),
-		Field('cross_prob', 'float'))
+		Field('cross_prob', 'float'),
+		Field('alpha', 'float'),
+		Field('beta', 'float'),
+		)
 
 db.define_table('chromossome',
 		Field('bits'),
@@ -39,12 +42,15 @@ if __name__=='__main__':
 	from Population import F6Population
 	p = F6Population(pop_size=50)
 
-	mutate_prob = 0.3
+	mutate_prob = 0.02
 	cross_prob = 0.7
+	alpha = None
+	beta = None
 
 	experiment = db.experiment.insert(task='F6Binary', mutate_prob=mutate_prob,
-			cross_prob=cross_prob)
+			cross_prob=cross_prob, alpha)
 	db.commit()
+	print experiment
 
 	for i in xrange(500):
 		crs_id = []
@@ -59,7 +65,7 @@ if __name__=='__main__':
 		db.population.insert(experiment=experiment,
 				generation=i,
 				chromossomes=crs_id)
-		if not i % 50:
+		if not i % 10:
 			db.commit()
 		p = p.new_population(mutate_prob, cross_prob)
 
