@@ -42,13 +42,18 @@ if __name__=='__main__':
 	from Population import F6Population
 	p = F6Population(pop_size=50)
 
-	mutate_prob = 0.02
+	mutate_prob = 0.1
 	cross_prob = 0.7
 	alpha = None
 	beta = None
+	j = 0
+	states = ((0.7, 0.1), (0.9,0.007), (0.7,0.2), 
+			(0.9, 0.02), (0.7,0.02), (0.8,0.3),
+			(0.9,0.001), (0.7, 0.02), (0.7,0.08),
+			(0.7, 0.02))
 
 	experiment = db.experiment.insert(task='F6Binary', mutate_prob=mutate_prob,
-			cross_prob=cross_prob, alpha)
+			cross_prob=cross_prob, alpha=alpha, beta=beta)
 	db.commit()
 	print experiment
 
@@ -65,9 +70,14 @@ if __name__=='__main__':
 		db.population.insert(experiment=experiment,
 				generation=i,
 				chromossomes=crs_id)
+		if not i % 50:
+			if len(states) > j:
+				cross_prob, mutate_prob = states[j]
+				j += 1
+				print "Change cr, mu", cross_prob, mutate_prob
 		if not i % 10:
 			db.commit()
-		p = p.new_population(mutate_prob, cross_prob)
+		p = p.new_population(mutate_prob, cross_prob, alpha=alpha, beta=beta)
 
 	print p
 	db.commit()

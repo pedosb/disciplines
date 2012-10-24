@@ -1,0 +1,84 @@
+\documentclass[a4paper]{article}
+
+\usepackage[latin1]{inputenc}
+%\usepackage[top=3cm,left=3cm,right=2cm,bottom=2cm]{geometry}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{epsfig}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[portuguese]{babel}
+
+\author{Pedro Batista}
+
+\title{Experiência 02 - Algoritmo Genético com Taxas de Mutação e Cruzamento
+Dinâmicas}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Definição do Problema}
+
+Para a função F6~\ref{fig:f6}, deve ser implementado um algoritmo genético (GA) com taxas de
+mutação e cruzamento dinâmicas. Para esse trabalho as seguintes especificações foram utilizadas:
+
+\begin{itemize}
+	\item Busca por $-100 \le x \le 100$ e $-100 \le y \le 100$.
+	\item Precisão de $x$ de pelo menos 4 casas decimais (21 bits).
+	\item Precisão de $y$ de pelo menos 5 casas decimais (25 bits).
+	\item População de 50 cromossomos.
+	\item Máximo de 500 gerações.
+	\item Representação binária.
+	\item Seleção por roleta.
+	\item Cruzamento de um ponto.
+\end{itemize}
+
+\begin{equation}
+		\arg_{x,y \in \mathbb{R}}\max f(x,y) \to f(x,y) =
+			0.5 - \frac{\sin{\sqrt{x^2+y^2}}-0.5}
+				{\left[1+0.001(x^2+y^2)\right]^2}
+	\label{eq:f6}
+\end{equation}
+
+\section{Modelagem}
+
+A modelagem geral do GA utilizada foi a mesma implementada na Experiência 01
+(Algoritmo Genético para a Função F6), as alterações para essa Experiência foi
+apenas nas taxas de cruzamento e mutação que agora são variáveis.
+
+\section{Metodologia}
+
+Para este trabalho foi fixada a semente do gerador de número aleatórios, dessa
+forma o resultado da simulação com os mesmos parâmetros geram o mesmo resultado.
+Dessa forma de 50 em 50 gerações as taxas de mutação e cruzamento podem ser
+alteradas manualmente.
+
+\section{Resultados}
+
+A ideia aqui empregada foi de aumentar o espaço de busca principalmente
+aumentando a taxa de cruzamento por algumas gerações e depois diminuí-la,
+tentando cruzar os melhores indivíduos encontrados enquanto o espaço de busca
+era maior. Depois de alguns experimentos chegamos aos resultados das Figuras
+\ref{fig:f6} e \ref{fig:var} que mostram a evolução do GA e as taxas de mutação
+e cruzamento respectivamente.
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=ga_varia.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6.}
+	\label{fig:f6}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\epsfig{file=varia.eps,width=1.2\textwidth}
+	\end{center}
+	\caption{GA para a função F6.}
+	\label{fig:var}
+\end{figure}
+
+\end{document}
